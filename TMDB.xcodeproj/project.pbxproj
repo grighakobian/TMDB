@@ -39,6 +39,8 @@
 		DD94494E2738195B001C8235 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD94494D2738195B001C8235 /* RxCocoa */; };
 		DD9449502738195B001C8235 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DD94494F2738195B001C8235 /* RxBlocking */; };
 		DD9449532738197F001C8235 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449522738197F001C8235 /* RxFlow */; };
+		DD94495527382020001C8235 /* TVShowsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* TVShowsResult.swift */; };
+		DD944957273822A4001C8235 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* TVShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		DD94492F2738037B001C8235 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		DD9449322738084F001C8235 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		DD94493427380CC1001C8235 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		DD94495427382020001C8235 /* TVShowsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResult.swift; sourceTree = "<group>"; };
+		DD944956273822A4001C8235 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 			children = (
 				DD9448D32737F3D0001C8235 /* Domain.h */,
 				DD9448D42737F3D0001C8235 /* Info.plist */,
+				DD944958273822EA001C8235 /* Entries */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -372,6 +377,15 @@
 				DD94493427380CC1001C8235 /* AppFlow.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DD944958273822EA001C8235 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				DD944956273822A4001C8235 /* TVShow.swift */,
+				DD94495427382020001C8235 /* TVShowsResult.swift */,
+			);
+			path = Entries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +571,7 @@
 					};
 					DD9448D02737F3D0001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					DD9448D82737F3D0001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -694,6 +709,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD944957273822A4001C8235 /* TVShow.swift in Sources */,
+				DD94495527382020001C8235 /* TVShowsResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +913,7 @@
 		DD9448C02737F048001C8235 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -916,6 +934,7 @@
 		DD9448C12737F048001C8235 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1020,6 +1039,7 @@
 		DD9448E92737F3D0001C8235 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1039,6 +1059,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1049,6 +1070,7 @@
 		DD9448EA2737F3D0001C8235 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
