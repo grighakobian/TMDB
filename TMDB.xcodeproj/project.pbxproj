@@ -30,6 +30,7 @@
 		DD94491C2737FA65001C8235 /* PopularSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */; };
 		DD94491E2737FAD1001C8235 /* PopularSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */; };
 		DD9449212737FCF7001C8235 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449202737FCF7001C8235 /* RxFlow */; };
+		DD9449242737FD7C001C8235 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449232737FD7C001C8235 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9449242737FD7C001C8235 /* SDWebImage in Frameworks */,
 				DD9449212737FCF7001C8235 /* RxFlow in Frameworks */,
 				DD9449132737F63B001C8235 /* RxSwift in Frameworks */,
 				DD9448E62737F3D0001C8235 /* Domain.framework in Frameworks */,
@@ -377,6 +379,7 @@
 				DD9449122737F63B001C8235 /* RxSwift */,
 				DD9449142737F63B001C8235 /* RxCocoa */,
 				DD9449202737FCF7001C8235 /* RxFlow */,
+				DD9449232737FD7C001C8235 /* SDWebImage */,
 			);
 			productName = TMDB;
 			productReference = DD9448952737F047001C8235 /* TMDB.app */;
@@ -540,6 +543,7 @@
 			packageReferences = (
 				DD9449112737F63B001C8235 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DD94491F2737FCF7001C8235 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				DD9449222737FD7C001C8235 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = DD9448962737F047001C8235 /* Products */;
 			projectDirPath = "";
@@ -1257,6 +1261,14 @@
 				version = 2.12.4;
 			};
 		};
+		DD9449222737FD7C001C8235 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = exactVersion;
+				version = 5.12.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1274,6 +1286,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD94491F2737FCF7001C8235 /* XCRemoteSwiftPackageReference "RxFlow" */;
 			productName = RxFlow;
+		};
+		DD9449232737FD7C001C8235 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9449222737FD7C001C8235 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
