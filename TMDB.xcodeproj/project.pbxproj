@@ -41,6 +41,7 @@
 		DD9449532738197F001C8235 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449522738197F001C8235 /* RxFlow */; };
 		DD94495527382020001C8235 /* TVShowsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* TVShowsResult.swift */; };
 		DD944957273822A4001C8235 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* TVShow.swift */; };
+		DD94495B2738232E001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495A2738232E001C8235 /* MoviesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		DD94493427380CC1001C8235 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		DD94495427382020001C8235 /* TVShowsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResult.swift; sourceTree = "<group>"; };
 		DD944956273822A4001C8235 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		DD94495A2738232E001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 				DD9448D32737F3D0001C8235 /* Domain.h */,
 				DD9448D42737F3D0001C8235 /* Info.plist */,
 				DD944958273822EA001C8235 /* Entries */,
+				DD94495927382315001C8235 /* Services */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -386,6 +389,14 @@
 				DD94495427382020001C8235 /* TVShowsResult.swift */,
 			);
 			path = Entries;
+			sourceTree = "<group>";
+		};
+		DD94495927382315001C8235 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD94495A2738232E001C8235 /* MoviesService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -711,6 +722,7 @@
 			files = (
 				DD944957273822A4001C8235 /* TVShow.swift in Sources */,
 				DD94495527382020001C8235 /* TVShowsResult.swift in Sources */,
+				DD94495B2738232E001C8235 /* MoviesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
