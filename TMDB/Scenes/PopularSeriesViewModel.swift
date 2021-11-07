@@ -6,9 +6,13 @@
 //
 
 import RxSwift
+import RxRelay
+import RxFlow
 
-
-public final class PopularSeriesViewModel: ViewModel {
+public final class PopularSeriesViewModel: ViewModel, Stepper {
+    
+    public var steps = PublishRelay<Step>()
+    
     
     public struct Input {
         
