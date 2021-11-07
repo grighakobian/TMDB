@@ -35,6 +35,8 @@
 		DD94492C27380234001C8235 /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492B27380234001C8235 /* ViewModelsAssembly.swift */; };
 		DD94492E2738027E001C8235 /* ViewControllersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */; };
 		DD9449302738037B001C8235 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492F2738037B001C8235 /* ServicesAssembly.swift */; };
+		DD9449332738084F001C8235 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9449322738084F001C8235 /* AppStep.swift */; };
+		DD94493527380CC1001C8235 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94493427380CC1001C8235 /* AppFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,8 @@
 		DD94492B27380234001C8235 /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
 		DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
 		DD94492F2738037B001C8235 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
+		DD9449322738084F001C8235 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
+		DD94493427380CC1001C8235 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +328,7 @@
 			children = (
 				DD9449172737F8C9001C8235 /* Core */,
 				DD94492827380102001C8235 /* DependencyInjection */,
+				DD94493127380822001C8235 /* Coordinators */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -354,6 +359,15 @@
 				DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */,
 			);
 			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		DD94493127380822001C8235 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				DD9449322738084F001C8235 /* AppStep.swift */,
+				DD94493427380CC1001C8235 /* AppFlow.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,6 +656,8 @@
 			files = (
 				DD94492A27380133001C8235 /* Dependency.swift in Sources */,
 				DD9448992737F047001C8235 /* AppDelegate.swift in Sources */,
+				DD9449332738084F001C8235 /* AppStep.swift in Sources */,
+				DD94493527380CC1001C8235 /* AppFlow.swift in Sources */,
 				DD94492C27380234001C8235 /* ViewModelsAssembly.swift in Sources */,
 				DD94491C2737FA65001C8235 /* PopularSeriesViewModel.swift in Sources */,
 				DD9449192737F8C9001C8235 /* ViewModel.swift in Sources */,
