@@ -13,7 +13,6 @@
 		DD9448A52737F048001C8235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9448A32737F048001C8235 /* LaunchScreen.storyboard */; };
 		DD9448B02737F048001C8235 /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448AF2737F048001C8235 /* TMDBTests.swift */; };
 		DD9448BB2737F048001C8235 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448BA2737F048001C8235 /* TMDBUITests.swift */; };
-		DD9448C92737F102001C8235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9448C82737F102001C8235 /* Main.storyboard */; };
 		DD9448DA2737F3D0001C8235 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9448D12737F3D0001C8235 /* Domain.framework */; };
 		DD9448E12737F3D0001C8235 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448E02737F3D0001C8235 /* DomainTests.swift */; };
 		DD9448E32737F3D0001C8235 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = DD9448D32737F3D0001C8235 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,7 +124,6 @@
 		DD9448B62737F048001C8235 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9448BA2737F048001C8235 /* TMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITests.swift; sourceTree = "<group>"; };
 		DD9448BC2737F048001C8235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD9448C82737F102001C8235 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DD9448D12737F3D0001C8235 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9448D32737F3D0001C8235 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		DD9448D42737F3D0001C8235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 		DD9448CA2737F287001C8235 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DD9448C82737F102001C8235 /* Main.storyboard */,
 				DD9448A12737F048001C8235 /* Assets.xcassets */,
 				DD9448A32737F048001C8235 /* LaunchScreen.storyboard */,
 				DD9448A62737F048001C8235 /* Info.plist */,
@@ -589,7 +586,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD9448C92737F102001C8235 /* Main.storyboard in Resources */,
 				DD9448A52737F048001C8235 /* LaunchScreen.storyboard in Resources */,
 				DD9448A22737F048001C8235 /* Assets.xcassets in Resources */,
 			);
