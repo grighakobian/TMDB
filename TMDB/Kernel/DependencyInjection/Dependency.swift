@@ -12,9 +12,16 @@ public final class Dependency {
     private let assembler: Assembler
     
     private init() {
+        let servicesAssembly = ServicesAssembly()
         let viewModelAssembly = ViewModelAssembly()
         let viewControllerAssembly = ViewControllerAssembly()
-        let assemblies: [Assembly] = [viewModelAssembly, viewControllerAssembly]
+        
+        let assemblies: [Assembly] = [
+            servicesAssembly,
+            viewModelAssembly,
+            viewControllerAssembly
+        ]
+        
         self.assembler = Assembler(assemblies)
     }
     
