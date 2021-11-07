@@ -12,7 +12,10 @@ public final class Dependency {
     private let assembler: Assembler
     
     private init() {
-        self.assembler = Assembler([])
+        let viewModelAssembly = ViewModelAssembly()
+        let viewControllerAssembly = ViewControllerAssembly()
+        let assemblies: [Assembly] = [viewModelAssembly, viewControllerAssembly]
+        self.assembler = Assembler(assemblies)
     }
     
     public var resolver: Resolver {
