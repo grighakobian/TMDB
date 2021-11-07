@@ -28,6 +28,7 @@
 		DD9449152737F63B001C8235 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449142737F63B001C8235 /* RxCocoa */; };
 		DD9449192737F8C9001C8235 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9449182737F8C9001C8235 /* ViewModel.swift */; };
 		DD94491C2737FA65001C8235 /* PopularSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */; };
+		DD94491E2737FAD1001C8235 /* PopularSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		DD9449052737F4AB001C8235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD9449182737F8C9001C8235 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeriesViewModel.swift; sourceTree = "<group>"; };
+		DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */,
+				DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				DD9448992737F047001C8235 /* AppDelegate.swift in Sources */,
 				DD94491C2737FA65001C8235 /* PopularSeriesViewModel.swift in Sources */,
 				DD9449192737F8C9001C8235 /* ViewModel.swift in Sources */,
+				DD94491E2737FAD1001C8235 /* PopularSeriesViewController.swift in Sources */,
 				DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
