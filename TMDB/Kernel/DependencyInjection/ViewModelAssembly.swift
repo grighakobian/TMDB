@@ -11,6 +11,9 @@ public final class ViewModelAssembly: Assembly {
     
     public func assemble(container: Container) {
         
+        container.register(PopularSeriesViewModel.self) { resolvier in
+            return PopularSeriesViewModel()
+        }
     }
 }
 

@@ -352,9 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				DD94492927380133001C8235 /* Dependency.swift */,
+				DD94492F2738037B001C8235 /* ServicesAssembly.swift */,
 				DD94492B27380234001C8235 /* ViewModelAssembly.swift */,
 				DD94492D2738027E001C8235 /* ViewControllerAssembly.swift */,
-				DD94492F2738037B001C8235 /* ServicesAssembly.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";

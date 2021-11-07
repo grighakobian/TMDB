@@ -11,5 +11,9 @@ public final class ViewControllerAssembly: Assembly {
     
     public func assemble(container: Container) {
         
+        container.register(PopularSeriesViewController.self) { resolvier in
+            let viewModel = resolvier.resolve(PopularSeriesViewModel.self)!
+            return PopularSeriesViewController(viewModel: viewModel)
+        }
     }
 }
