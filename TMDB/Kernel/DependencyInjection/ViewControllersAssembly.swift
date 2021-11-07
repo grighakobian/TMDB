@@ -1,5 +1,5 @@
 //
-//  ViewControllerAssembly.swift
+//  ViewControllersAssembly.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 07.11.21.
@@ -7,7 +7,7 @@
 
 import Swinject
 
-public final class ViewControllerAssembly: Assembly {
+public final class ViewControllersAssembly: Assembly {
     
     public func assemble(container: Container) {
         

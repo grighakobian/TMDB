@@ -33,8 +33,8 @@
 		DD9449242737FD7C001C8235 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449232737FD7C001C8235 /* SDWebImage */; };
 		DD9449272737FDC5001C8235 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449262737FDC5001C8235 /* Swinject */; };
 		DD94492A27380133001C8235 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492927380133001C8235 /* Dependency.swift */; };
-		DD94492C27380234001C8235 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492B27380234001C8235 /* ViewModelAssembly.swift */; };
-		DD94492E2738027E001C8235 /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492D2738027E001C8235 /* ViewControllerAssembly.swift */; };
+		DD94492C27380234001C8235 /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492B27380234001C8235 /* ViewModelsAssembly.swift */; };
+		DD94492E2738027E001C8235 /* ViewControllersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */; };
 		DD9449302738037B001C8235 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492F2738037B001C8235 /* ServicesAssembly.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,8 +142,8 @@
 		DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeriesViewModel.swift; sourceTree = "<group>"; };
 		DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeriesViewController.swift; sourceTree = "<group>"; };
 		DD94492927380133001C8235 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
-		DD94492B27380234001C8235 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
-		DD94492D2738027E001C8235 /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
+		DD94492B27380234001C8235 /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
+		DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
 		DD94492F2738037B001C8235 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,8 +353,8 @@
 			children = (
 				DD94492927380133001C8235 /* Dependency.swift */,
 				DD94492F2738037B001C8235 /* ServicesAssembly.swift */,
-				DD94492B27380234001C8235 /* ViewModelAssembly.swift */,
-				DD94492D2738027E001C8235 /* ViewControllerAssembly.swift */,
+				DD94492B27380234001C8235 /* ViewModelsAssembly.swift */,
+				DD94492D2738027E001C8235 /* ViewControllersAssembly.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -646,11 +646,11 @@
 			files = (
 				DD94492A27380133001C8235 /* Dependency.swift in Sources */,
 				DD9448992737F047001C8235 /* AppDelegate.swift in Sources */,
-				DD94492C27380234001C8235 /* ViewModelAssembly.swift in Sources */,
+				DD94492C27380234001C8235 /* ViewModelsAssembly.swift in Sources */,
 				DD94491C2737FA65001C8235 /* PopularSeriesViewModel.swift in Sources */,
 				DD9449192737F8C9001C8235 /* ViewModel.swift in Sources */,
 				DD94491E2737FAD1001C8235 /* PopularSeriesViewController.swift in Sources */,
-				DD94492E2738027E001C8235 /* ViewControllerAssembly.swift in Sources */,
+				DD94492E2738027E001C8235 /* ViewControllersAssembly.swift in Sources */,
 				DD9449302738037B001C8235 /* ServicesAssembly.swift in Sources */,
 				DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */,
 			);

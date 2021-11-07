@@ -1,5 +1,5 @@
 //
-//  ViewModelAssembly.swift
+//  ViewModelsAssembly.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 07.11.21.
@@ -7,7 +7,7 @@
 
 import Swinject
 
-public final class ViewModelAssembly: Assembly {
+public final class ViewModelsAssembly: Assembly {
     
     public func assemble(container: Container) {
         
