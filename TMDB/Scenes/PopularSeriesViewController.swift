@@ -9,7 +9,7 @@ import UIKit
 
 public final class PopularSeriesViewController: UIViewController {
     
-    private let viewModel: PopularSeriesViewModel
+    public let viewModel: PopularSeriesViewModel
     
     init(viewModel: PopularSeriesViewModel) {
         self.viewModel = viewModel
@@ -20,5 +20,9 @@ public final class PopularSeriesViewController: UIViewController {
         fatalError("Use init(viewModel:) instead")
     }
     
-    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .systemBackground
+    }
 }
