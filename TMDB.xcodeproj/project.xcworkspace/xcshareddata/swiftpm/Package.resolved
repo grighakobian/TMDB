@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "RxFlow",
-        "repositoryURL": "https://github.com/RxSwiftCommunity/RxFlow.git",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxFlow",
         "state": {
           "branch": null,
           "revision": "8114d4781b9c5de693ed225cfb28ca3b695b023a",
@@ -12,7 +12,7 @@
       },
       {
         "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
         "state": {
           "branch": null,
           "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
