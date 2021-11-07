@@ -97,12 +97,8 @@
 		DD9448972737F047001C8235 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
-				DD9448982737F047001C8235 /* AppDelegate.swift */,
-				DD94489A2737F047001C8235 /* SceneDelegate.swift */,
-				DD9448A12737F048001C8235 /* Assets.xcassets */,
-				DD9448A32737F048001C8235 /* LaunchScreen.storyboard */,
-				DD9448A62737F048001C8235 /* Info.plist */,
-				DD9448C82737F102001C8235 /* Main.storyboard */,
+				DD9448CB2737F292001C8235 /* App */,
+				DD9448CA2737F287001C8235 /* Supporting Files */,
 			);
 			path = TMDB;
 			sourceTree = "<group>";
@@ -123,6 +119,26 @@
 				DD9448BC2737F048001C8235 /* Info.plist */,
 			);
 			path = TMDBUITests;
+			sourceTree = "<group>";
+		};
+		DD9448CA2737F287001C8235 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD9448C82737F102001C8235 /* Main.storyboard */,
+				DD9448A12737F048001C8235 /* Assets.xcassets */,
+				DD9448A32737F048001C8235 /* LaunchScreen.storyboard */,
+				DD9448A62737F048001C8235 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD9448CB2737F292001C8235 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD9448982737F047001C8235 /* AppDelegate.swift */,
+				DD94489A2737F047001C8235 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZL85VTVZDZ;
-				INFOPLIST_FILE = TMDB/Info.plist;
+				INFOPLIST_FILE = "TMDB/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,7 +462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZL85VTVZDZ;
-				INFOPLIST_FILE = TMDB/Info.plist;
+				INFOPLIST_FILE = "TMDB/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
