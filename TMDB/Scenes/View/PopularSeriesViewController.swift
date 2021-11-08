@@ -7,11 +7,16 @@
 
 import UIKit
 import RxSwift
+import DifferenceKit
 
 public final class PopularSeriesViewController: UICollectionViewController {
     
     public let viewModel: PopularSeriesViewModel
+    
+    private(set) var sectionItems = [MovieItemViewModel]()
     private let disposeBag = DisposeBag()
+    
+    // MARK: - Init
     
     init(viewModel: PopularSeriesViewModel) {
         self.viewModel = viewModel
@@ -23,6 +28,8 @@ public final class PopularSeriesViewController: UICollectionViewController {
         fatalError("Use init(viewModel:) instead")
     }
     
+    // MARK: Lifecycle
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,14 +39,17 @@ public final class PopularSeriesViewController: UICollectionViewController {
         bindViewModel()
     }
     
+    // MARK: - Helpers
+    
     private func bindViewModel() {
         let input = PopularSeriesViewModel.Input()
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
         output.popularTVShows
             .debug()
-            .drive()
-            .disposed(by: disposeBag)
+            .drive(onNext: { [unowned self] sectionItems in
+                setSectionItems(sectionItems)
+            }).disposed(by: disposeBag)
     }
     
     private func configureNavigationItem() {
@@ -48,27 +58,15 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.systemBackground
-        collectionView.register(
-            MovieCollectionViewCell.self,
-            forCellWithReuseIdentifier: "MovieCollectionViewCell"
-        )
-    }
-}
-
-
-extension PopularSeriesViewController {
-    
-    public override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseId)
     }
     
-    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
-    }
+    // MARK: DataSource
     
-    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
-        return cell
+    func setSectionItems(_ newSectionItems: [MovieItemViewModel]) {
+        let changeset = StagedChangeset(source: sectionItems, target: newSectionItems)
+        collectionView.reload(using: changeset) { newSectionItems in
+            self.sectionItems = newSectionItems
+        }
     }
-    
 }
