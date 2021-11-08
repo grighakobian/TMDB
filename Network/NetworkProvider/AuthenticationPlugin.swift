@@ -5,4 +5,39 @@
 //  Created by Grigor Hakobyan on 08.11.21.
 //
 
-import Foundation
+import Moya
+
+
+public enum AuthenticationType {
+    case none
+    case plain(apiKey: String)
+}
+
+public protocol Authenticable {
+    
+    var authenticationType: AuthenticationType { get }
+}
+
+
+public final class AuthenticationPlugin: PluginType {
+    
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        guard let target = target as? Authenticable, let url = request.url,
+              var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return request
+        }
+        switch target.authenticationType {
+        case .none:
+            return request
+        case .plain(let apiKey):
+            var adaptRequst = request
+            var queryItems = components.queryItems ?? []
+            let queryItem = URLQueryItem(name: "api_key", value: apiKey)
+            queryItems.append(queryItem)
+            components.queryItems = queryItems
+            let url = try! components.asURL()
+            adaptRequst.url = url
+            return adaptRequst
+        }
+    }
+}

@@ -7,6 +7,8 @@
 
 import Moya
 
+private let apiKey = "55b14a25af9de1c89aeecfce2fdf963e"
+
 public enum API: TargetType {
     
     case popularTVShows
@@ -40,6 +42,16 @@ public enum API: TargetType {
     
     public var validationType: ValidationType {
         return .successCodes
+    }
+}
+
+extension API: Authenticable {
+    
+    public var authenticationType: AuthenticationType {
+        switch self {
+        case .popularTVShows:
+            return .plain(apiKey: apiKey)
+        }
     }
 }
 
