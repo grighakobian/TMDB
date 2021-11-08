@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0B76C427393E9500817F3F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD0B76C327393E9500817F3F /* RxSwift */; };
+		DD0B76C627393EAB00817F3F /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DD0B76C527393EAB00817F3F /* RxMoya */; };
+		DD0B76C827393F1900817F3F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DD0B76C727393F1900817F3F /* Moya */; };
 		DD9448992737F047001C8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448982737F047001C8235 /* AppDelegate.swift */; };
 		DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94489A2737F047001C8235 /* SceneDelegate.swift */; };
 		DD9448A22737F048001C8235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9448A12737F048001C8235 /* Assets.xcassets */; };
@@ -39,6 +42,12 @@
 		DD94494E2738195B001C8235 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD94494D2738195B001C8235 /* RxCocoa */; };
 		DD9449502738195B001C8235 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DD94494F2738195B001C8235 /* RxBlocking */; };
 		DD9449532738197F001C8235 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DD9449522738197F001C8235 /* RxFlow */; };
+		DD94495527382020001C8235 /* TVShowsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* TVShowsResult.swift */; };
+		DD944957273822A4001C8235 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* TVShow.swift */; };
+		DD94495B2738232E001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495A2738232E001C8235 /* MoviesService.swift */; };
+		DD94496927391C1F001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496827391C1F001C8235 /* MoviesService.swift */; };
+		DD94496C27391D77001C8235 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DD94496B27391D77001C8235 /* RxMoya */; };
+		DD94496E27391D91001C8235 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496D27391D91001C8235 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +158,11 @@
 		DD94492F2738037B001C8235 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		DD9449322738084F001C8235 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		DD94493427380CC1001C8235 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		DD94495427382020001C8235 /* TVShowsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResult.swift; sourceTree = "<group>"; };
+		DD944956273822A4001C8235 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		DD94495A2738232E001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		DD94496827391C1F001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		DD94496D27391D91001C8235 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD94496C27391D77001C8235 /* RxMoya in Frameworks */,
 				DD94494C2738195B001C8235 /* RxRelay in Frameworks */,
 				DD9449242737FD7C001C8235 /* SDWebImage in Frameworks */,
 				DD9449272737FDC5001C8235 /* Swinject in Frameworks */,
@@ -186,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B76C427393E9500817F3F /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0B76C827393F1900817F3F /* Moya in Frameworks */,
+				DD0B76C627393EAB00817F3F /* RxMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +233,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0B76B027393B6700817F3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD0B76C9273940CE00817F3F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DD94496D27391D91001C8235 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DD0B76CA273940D300817F3F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD94496827391C1F001C8235 /* MoviesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DD94488C2737F047001C8235 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +267,7 @@
 				DD9448F52737F4AB001C8235 /* Network */,
 				DD9449022737F4AB001C8235 /* NetworkTests */,
 				DD9448962737F047001C8235 /* Products */,
+				DD0B76B027393B6700817F3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,6 +338,8 @@
 			children = (
 				DD9448D32737F3D0001C8235 /* Domain.h */,
 				DD9448D42737F3D0001C8235 /* Info.plist */,
+				DD944958273822EA001C8235 /* Entries */,
+				DD94495927382315001C8235 /* Services */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -314,6 +358,8 @@
 			children = (
 				DD9448F62737F4AB001C8235 /* Network.h */,
 				DD9448F72737F4AB001C8235 /* Info.plist */,
+				DD0B76C9273940CE00817F3F /* API */,
+				DD0B76CA273940D300817F3F /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -374,6 +420,23 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		DD944958273822EA001C8235 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				DD944956273822A4001C8235 /* TVShow.swift */,
+				DD94495427382020001C8235 /* TVShowsResult.swift */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
+		DD94495927382315001C8235 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD94495A2738232E001C8235 /* MoviesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -420,6 +483,7 @@
 				DD94494D2738195B001C8235 /* RxCocoa */,
 				DD94494F2738195B001C8235 /* RxBlocking */,
 				DD9449522738197F001C8235 /* RxFlow */,
+				DD94496B27391D77001C8235 /* RxMoya */,
 			);
 			productName = TMDB;
 			productReference = DD9448952737F047001C8235 /* TMDB.app */;
@@ -475,6 +539,9 @@
 			dependencies = (
 			);
 			name = Domain;
+			packageProductDependencies = (
+				DD0B76C327393E9500817F3F /* RxSwift */,
+			);
 			productName = Domain;
 			productReference = DD9448D12737F3D0001C8235 /* Domain.framework */;
 			productType = "com.apple.product-type.framework";
@@ -512,6 +579,10 @@
 			dependencies = (
 			);
 			name = Network;
+			packageProductDependencies = (
+				DD0B76C527393EAB00817F3F /* RxMoya */,
+				DD0B76C727393F1900817F3F /* Moya */,
+			);
 			productName = Network;
 			productReference = DD9448F42737F4AB001C8235 /* Network.framework */;
 			productType = "com.apple.product-type.framework";
@@ -557,6 +628,7 @@
 					};
 					DD9448D02737F3D0001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					DD9448D82737F3D0001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -564,6 +636,7 @@
 					};
 					DD9448F32737F4AB001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					DD9448FB2737F4AB001C8235 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -585,6 +658,7 @@
 				DD9449252737FDC5001C8235 /* XCRemoteSwiftPackageReference "Swinject" */,
 				DD9449482738195B001C8235 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DD9449512738197F001C8235 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				DD94496A27391D77001C8235 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = DD9448962737F047001C8235 /* Products */;
 			projectDirPath = "";
@@ -694,6 +768,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD944957273822A4001C8235 /* TVShow.swift in Sources */,
+				DD94495527382020001C8235 /* TVShowsResult.swift in Sources */,
+				DD94495B2738232E001C8235 /* MoviesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +786,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD94496E27391D91001C8235 /* API.swift in Sources */,
+				DD94496927391C1F001C8235 /* MoviesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +975,7 @@
 		DD9448C02737F048001C8235 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -916,6 +996,7 @@
 		DD9448C12737F048001C8235 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1020,6 +1101,7 @@
 		DD9448E92737F3D0001C8235 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1039,6 +1121,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1049,6 +1132,7 @@
 		DD9448EA2737F3D0001C8235 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1118,6 +1202,7 @@
 		DD94490B2737F4AB001C8235 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1137,6 +1222,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1147,6 +1233,7 @@
 		DD94490C2737F4AB001C8235 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1323,9 +1410,32 @@
 				version = 2.12.4;
 			};
 		};
+		DD94496A27391D77001C8235 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD0B76C327393E9500817F3F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9449482738195B001C8235 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		DD0B76C527393EAB00817F3F /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD94496A27391D77001C8235 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		DD0B76C727393F1900817F3F /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD94496A27391D77001C8235 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		DD9449232737FD7C001C8235 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD9449222737FD7C001C8235 /* XCRemoteSwiftPackageReference "SDWebImage" */;
@@ -1360,6 +1470,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD9449512738197F001C8235 /* XCRemoteSwiftPackageReference "RxFlow" */;
 			productName = RxFlow;
+		};
+		DD94496B27391D77001C8235 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD94496A27391D77001C8235 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
