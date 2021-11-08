@@ -387,6 +387,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		DD0B76EF2739B65900817F3F /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B76D92739689E00817F3F /* Model */,
+				DD0B76D227395EE000817F3F /* View */,
+				DD0B76DB273968C400817F3F /* ViewModel */,
+				DD0B76DA273968A500817F3F /* Layout */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
 		DD94488C2737F047001C8235 = {
 			isa = PBXGroup;
 			children = (
@@ -529,10 +540,7 @@
 		DD94491A2737FA2F001C8235 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				DD0B76D92739689E00817F3F /* Model */,
-				DD0B76D227395EE000817F3F /* View */,
-				DD0B76DB273968C400817F3F /* ViewModel */,
-				DD0B76DA273968A500817F3F /* Layout */,
+				DD0B76EF2739B65900817F3F /* Movies */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
