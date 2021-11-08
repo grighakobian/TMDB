@@ -24,6 +24,8 @@
 		DD0B76E127396E9500817F3F /* UICollectionViewCell+ReuseId.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76E027396E9500817F3F /* UICollectionViewCell+ReuseId.swift */; };
 		DD0B76E327396F4A00817F3F /* PopularSeriesViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76E227396F4A00817F3F /* PopularSeriesViewController+UICollectionViewDataSource.swift */; };
 		DD0B76E72739766E00817F3F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76E62739766E00817F3F /* GradientView.swift */; };
+		DD0B76EA2739821C00817F3F /* PaginationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76E92739821C00817F3F /* PaginationContext.swift */; };
+		DD0B76EC2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76EB2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift */; };
 		DD9448992737F047001C8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448982737F047001C8235 /* AppDelegate.swift */; };
 		DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94489A2737F047001C8235 /* SceneDelegate.swift */; };
 		DD9448A22737F048001C8235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9448A12737F048001C8235 /* Assets.xcassets */; };
@@ -160,6 +162,8 @@
 		DD0B76E027396E9500817F3F /* UICollectionViewCell+ReuseId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseId.swift"; sourceTree = "<group>"; };
 		DD0B76E227396F4A00817F3F /* PopularSeriesViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularSeriesViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		DD0B76E62739766E00817F3F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DD0B76E92739821C00817F3F /* PaginationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationContext.swift; sourceTree = "<group>"; };
+		DD0B76EB2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularSeriesViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		DD9448952737F047001C8235 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9448982737F047001C8235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD94489A2737F047001C8235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 			children = (
 				DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */,
 				DD0B76E227396F4A00817F3F /* PopularSeriesViewController+UICollectionViewDataSource.swift */,
+				DD0B76EB2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift */,
 				DD0B76D327395F0600817F3F /* MovieCollectionViewCell.swift */,
 			);
 			path = View;
@@ -369,6 +374,14 @@
 				DD0B76E62739766E00817F3F /* GradientView.swift */,
 			);
 			path = UILayer;
+			sourceTree = "<group>";
+		};
+		DD0B76E82739820D00817F3F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B76E92739821C00817F3F /* PaginationContext.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DD94488C2737F047001C8235 = {
@@ -497,6 +510,7 @@
 				DD94493127380822001C8235 /* Coordinators */,
 				DD0B76CD27394E8200817F3F /* Extensions */,
 				DD0B76E52739766100817F3F /* UILayer */,
+				DD0B76E82739820D00817F3F /* Utils */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -1069,6 +1083,7 @@
 				DD0B76E72739766E00817F3F /* GradientView.swift in Sources */,
 				DD0B76E127396E9500817F3F /* UICollectionViewCell+ReuseId.swift in Sources */,
 				DD94492A27380133001C8235 /* Dependency.swift in Sources */,
+				DD0B76EC2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift in Sources */,
 				DD0B76D427395F0600817F3F /* MovieCollectionViewCell.swift in Sources */,
 				DD9448992737F047001C8235 /* AppDelegate.swift in Sources */,
 				DD9449332738084F001C8235 /* AppStep.swift in Sources */,
@@ -1083,6 +1098,7 @@
 				DD94492E2738027E001C8235 /* ViewControllersAssembly.swift in Sources */,
 				DD9449302738037B001C8235 /* ServicesAssembly.swift in Sources */,
 				DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */,
+				DD0B76EA2739821C00817F3F /* PaginationContext.swift in Sources */,
 				DD0B76DD273968EF00817F3F /* MovieItemViewModel.swift in Sources */,
 				DD0B76D82739685900817F3F /* MovieRepresentable.swift in Sources */,
 			);

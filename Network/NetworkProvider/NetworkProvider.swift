@@ -21,9 +21,10 @@ public final class NetworkProvider: NetworkProviderType {
     public init(configuration: URLSessionConfiguration) {
         let session = Session(configuration: configuration)
         let configuration = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-        let networkLoggerPlugin = NetworkLoggerPlugin(configuration: configuration)
+//        let networkLoggerPlugin = NetworkLoggerPlugin(configuration: configuration)
         let authenticationPlugin = AuthenticationPlugin()
-        let plugins: [PluginType] = [networkLoggerPlugin, authenticationPlugin]
+//        let plugins: [PluginType] = [networkLoggerPlugin, authenticationPlugin]
+        let plugins: [PluginType] = [authenticationPlugin]
         moyaProvider = MoyaProvider<API>(session: session, plugins: plugins)
     }
     

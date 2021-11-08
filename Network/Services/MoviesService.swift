@@ -18,7 +18,7 @@ open class MoviesService: Domain.MoviesService {
     }
     
     public func getPopularTVShows(page: Int) -> Single<TVShowsResult> {
-        return moyaProvider.rx.request(.popularTVShows)
+        return moyaProvider.rx.request(.popularTVShows(page: page))
             .map(TVShowsResult.self)
     }
 }
