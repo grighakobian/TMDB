@@ -9,8 +9,8 @@ import Moya
 
 
 public enum AuthenticationType {
-    case none
-    case plain(apiKey: String)
+    case noAuth
+    case auth(URLQueryItem)
 }
 
 public protocol Authenticable {
@@ -27,12 +27,11 @@ public final class AuthenticationPlugin: PluginType {
             return request
         }
         switch target.authenticationType {
-        case .none:
+        case .noAuth:
             return request
-        case .plain(let apiKey):
+        case .auth(let queryItem):
             var adaptRequst = request
             var queryItems = components.queryItems ?? []
-            let queryItem = URLQueryItem(name: "api_key", value: apiKey)
             queryItems.append(queryItem)
             components.queryItems = queryItems
             let url = try! components.asURL()
