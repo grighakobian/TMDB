@@ -14,6 +14,8 @@ public final class PopularSeriesViewController: UICollectionViewController {
     public let viewModel: PopularSeriesViewModel
     
     private(set) var sectionItems = [MovieItemViewModel]()
+    
+    internal let nextPageTrigger = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     
     // MARK: - Init
@@ -42,11 +44,10 @@ public final class PopularSeriesViewController: UICollectionViewController {
     // MARK: - Helpers
     
     private func bindViewModel() {
-        let input = PopularSeriesViewModel.Input()
+        let input = PopularSeriesViewModel.Input(nextPageTrigger: nextPageTrigger)
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
         output.popularTVShows
-            .debug()
             .drive(onNext: { [unowned self] sectionItems in
                 setSectionItems(sectionItems)
             }).disposed(by: disposeBag)

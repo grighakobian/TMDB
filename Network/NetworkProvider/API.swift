@@ -9,7 +9,7 @@ import Moya
 
 public enum API: TargetType {
     
-    case popularTVShows
+    case popularTVShows(page: Int)
     
     public var baseURL: URL {
         return URL(string: "https://api.themoviedb.org/3")!
@@ -27,7 +27,11 @@ public enum API: TargetType {
     }
     
     public var task: Task {
-        return .requestPlain
+        switch self {
+        case .popularTVShows(let page):
+            let page = ["page": page]
+            return .requestParameters(parameters: page, encoding: URLEncoding.default)
+        }
     }
     
     public var headers: [String : String]? {
