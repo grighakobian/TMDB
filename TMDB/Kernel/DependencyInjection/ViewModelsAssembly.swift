@@ -6,13 +6,15 @@
 //
 
 import Swinject
+import Domain
 
 public final class ViewModelsAssembly: Assembly {
     
     public func assemble(container: Container) {
         
-        container.register(PopularSeriesViewModel.self) { resolvier in
-            return PopularSeriesViewModel()
+        container.register(PopularSeriesViewModel.self) { resolver in
+            let moviesService = resolver.resolve(Domain.MoviesService.self)!
+            return PopularSeriesViewModel(moviesService: moviesService)
         }
     }
 }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 public final class PopularSeriesViewController: UIViewController {
     
     public let viewModel: PopularSeriesViewModel
+    private let disposeBag = DisposeBag()
     
     init(viewModel: PopularSeriesViewModel) {
         self.viewModel = viewModel
@@ -22,7 +24,18 @@ public final class PopularSeriesViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        let input = PopularSeriesViewModel.Input()
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+        
+        output.popularTVShows
+            .debug()
+            .drive()
+            .disposed(by: disposeBag)
     }
 }
