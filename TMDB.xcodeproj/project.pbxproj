@@ -45,7 +45,7 @@
 		DD94495527382020001C8235 /* TVShowsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* TVShowsResult.swift */; };
 		DD944957273822A4001C8235 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* TVShow.swift */; };
 		DD94495B2738232E001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495A2738232E001C8235 /* MoviesService.swift */; };
-		DD94496927391C1F001C8235 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496827391C1F001C8235 /* Network.swift */; };
+		DD94496927391C1F001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496827391C1F001C8235 /* MoviesService.swift */; };
 		DD94496C27391D77001C8235 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DD94496B27391D77001C8235 /* RxMoya */; };
 		DD94496E27391D91001C8235 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496D27391D91001C8235 /* API.swift */; };
 /* End PBXBuildFile section */
@@ -161,7 +161,7 @@
 		DD94495427382020001C8235 /* TVShowsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResult.swift; sourceTree = "<group>"; };
 		DD944956273822A4001C8235 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		DD94495A2738232E001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
-		DD94496827391C1F001C8235 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		DD94496827391C1F001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		DD94496D27391D91001C8235 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,7 +342,7 @@
 			children = (
 				DD9448F62737F4AB001C8235 /* Network.h */,
 				DD9448F72737F4AB001C8235 /* Info.plist */,
-				DD94496827391C1F001C8235 /* Network.swift */,
+				DD94496827391C1F001C8235 /* MoviesService.swift */,
 				DD94496D27391D91001C8235 /* API.swift */,
 			);
 			path = Network;
@@ -771,7 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD94496E27391D91001C8235 /* API.swift in Sources */,
-				DD94496927391C1F001C8235 /* Network.swift in Sources */,
+				DD94496927391C1F001C8235 /* MoviesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
