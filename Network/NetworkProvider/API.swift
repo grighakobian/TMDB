@@ -6,7 +6,6 @@
 //
 
 import Moya
-import RxMoya
 
 public enum API: TargetType {
     
