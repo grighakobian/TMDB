@@ -38,14 +38,16 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         return titleLabel
     }()
     
-    private lazy var averageRatingLabel: UILabel = {
-        let averageRatingLabel = UILabel()
+    private lazy var averageRatingLabel: InsetLabel = {
+        let averageRatingLabel = InsetLabel()
         averageRatingLabel.numberOfLines = 1
         averageRatingLabel.textColor = UIColor.white
-        averageRatingLabel.backgroundColor = UIColor.systemOrange
-        averageRatingLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-//        averageRatingLabel.layer.cornerRadius = 30.0
-//        averageRatingLabel.clipsToBounds = true
+        averageRatingLabel.backgroundColor = UIColor.systemPink
+        averageRatingLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        averageRatingLabel.layer.cornerRadius = 4.0
+        averageRatingLabel.clipsToBounds = true
+        averageRatingLabel.textAlignment = .center
+        averageRatingLabel.textInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         averageRatingLabel.translatesAutoresizingMaskIntoConstraints = false
         return averageRatingLabel
     }()
@@ -133,5 +135,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         
         averageRatingLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12.0).isActive = true
         averageRatingLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12.0).isActive = true
+        averageRatingLabel.widthAnchor.constraint(equalToConstant: 52).isActive = true
     }
 }
