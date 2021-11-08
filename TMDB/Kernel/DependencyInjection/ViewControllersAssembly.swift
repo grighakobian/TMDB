@@ -17,9 +17,9 @@ public final class ViewControllersAssembly: Assembly {
             return PopularSeriesViewController(viewModel: viewModel)
         }
         
-        container.register(MoviesDetailViewController.self) { (resolver: Resolver, tvShow: TVShow) in
-            let viewModel = resolver.resolve(MoviesDetailViewModel.self, argument: tvShow)!
-            return MoviesDetailViewController(viewModel: viewModel)
+        container.register(MovieDetailViewController.self) { (resolver: Resolver, tvShow: TVShow) in
+            let viewModel = resolver.resolve(MovieDetailViewModel.self, argument: tvShow)!
+            return MovieDetailViewController(viewModel: viewModel)
         }
     }
 }

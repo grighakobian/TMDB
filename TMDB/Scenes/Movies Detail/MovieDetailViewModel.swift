@@ -1,5 +1,5 @@
 //
-//  MoviesDetailViewModel.swift
+//  MovieDetailViewModel.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 08.11.21.
@@ -10,7 +10,7 @@ import Domain
 import RxSwift
 import RxCocoa
 
-public class MoviesDetailViewModel: ViewModel {
+public class MovieDetailViewModel: ViewModel {
     
     
     private let tvShow: TVShow

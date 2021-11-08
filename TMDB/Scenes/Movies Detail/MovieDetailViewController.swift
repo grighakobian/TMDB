@@ -1,5 +1,5 @@
 //
-//  MoviesDetailViewController.swift
+//  MovieDetailViewController.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 08.11.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class MoviesDetailViewController: UIViewController {
+public class MovieDetailViewController: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -52,9 +52,9 @@ public class MoviesDetailViewController: UIViewController {
     }()
     
     
-    private let viewModel: MoviesDetailViewModel
+    private let viewModel: MovieDetailViewModel
     
-    public init(viewModel: MoviesDetailViewModel) {
+    public init(viewModel: MovieDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
