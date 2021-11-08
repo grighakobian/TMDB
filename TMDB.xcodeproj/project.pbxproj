@@ -240,6 +240,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD0B76C9273940CE00817F3F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DD94496D27391D91001C8235 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DD0B76CA273940D300817F3F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD94496827391C1F001C8235 /* MoviesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DD94488C2737F047001C8235 = {
 			isa = PBXGroup;
 			children = (
@@ -342,8 +358,8 @@
 			children = (
 				DD9448F62737F4AB001C8235 /* Network.h */,
 				DD9448F72737F4AB001C8235 /* Info.plist */,
-				DD94496827391C1F001C8235 /* MoviesService.swift */,
-				DD94496D27391D91001C8235 /* API.swift */,
+				DD0B76C9273940CE00817F3F /* API */,
+				DD0B76CA273940D300817F3F /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
