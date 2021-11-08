@@ -27,6 +27,8 @@
 		DD0B76EA2739821C00817F3F /* PaginationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76E92739821C00817F3F /* PaginationContext.swift */; };
 		DD0B76EC2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76EB2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift */; };
 		DD0B76EE2739B19B00817F3F /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76ED2739B19B00817F3F /* InsetLabel.swift */; };
+		DD0B76F32739B69900817F3F /* MoviesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76F22739B69900817F3F /* MoviesDetailViewModel.swift */; };
+		DD0B76F52739B7E000817F3F /* MoviesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B76F42739B7E000817F3F /* MoviesDetailViewController.swift */; };
 		DD9448992737F047001C8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9448982737F047001C8235 /* AppDelegate.swift */; };
 		DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94489A2737F047001C8235 /* SceneDelegate.swift */; };
 		DD9448A22737F048001C8235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9448A12737F048001C8235 /* Assets.xcassets */; };
@@ -166,6 +168,8 @@
 		DD0B76E92739821C00817F3F /* PaginationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationContext.swift; sourceTree = "<group>"; };
 		DD0B76EB2739AD8900817F3F /* PopularSeriesViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularSeriesViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		DD0B76ED2739B19B00817F3F /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		DD0B76F22739B69900817F3F /* MoviesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailViewModel.swift; sourceTree = "<group>"; };
+		DD0B76F42739B7E000817F3F /* MoviesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailViewController.swift; sourceTree = "<group>"; };
 		DD9448952737F047001C8235 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9448982737F047001C8235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD94489A2737F047001C8235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -398,6 +402,15 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		DD0B76F12739B68900817F3F /* Movies Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B76F22739B69900817F3F /* MoviesDetailViewModel.swift */,
+				DD0B76F42739B7E000817F3F /* MoviesDetailViewController.swift */,
+			);
+			path = "Movies Detail";
+			sourceTree = "<group>";
+		};
 		DD94488C2737F047001C8235 = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0B76EF2739B65900817F3F /* Movies */,
+				DD0B76F12739B68900817F3F /* Movies Detail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1099,6 +1113,7 @@
 				DD9448992737F047001C8235 /* AppDelegate.swift in Sources */,
 				DD9449332738084F001C8235 /* AppStep.swift in Sources */,
 				DD94493527380CC1001C8235 /* AppFlow.swift in Sources */,
+				DD0B76F52739B7E000817F3F /* MoviesDetailViewController.swift in Sources */,
 				DD0B76EE2739B19B00817F3F /* InsetLabel.swift in Sources */,
 				DD0B76CF27394EA300817F3F /* Observable.swift in Sources */,
 				DD94492C27380234001C8235 /* ViewModelsAssembly.swift in Sources */,
@@ -1112,6 +1127,7 @@
 				DD94489B2737F047001C8235 /* SceneDelegate.swift in Sources */,
 				DD0B76EA2739821C00817F3F /* PaginationContext.swift in Sources */,
 				DD0B76DD273968EF00817F3F /* MovieItemViewModel.swift in Sources */,
+				DD0B76F32739B69900817F3F /* MoviesDetailViewModel.swift in Sources */,
 				DD0B76D82739685900817F3F /* MovieRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
