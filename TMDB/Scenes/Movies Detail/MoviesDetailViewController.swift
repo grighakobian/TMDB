@@ -52,6 +52,17 @@ public class MoviesDetailViewController: UIViewController {
     }()
     
     
+    private let viewModel: MoviesDetailViewModel
+    
+    public init(viewModel: MoviesDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Use init(viewModel:) instead")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         

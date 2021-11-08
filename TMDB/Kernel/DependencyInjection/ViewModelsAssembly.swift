@@ -5,8 +5,8 @@
 //  Created by Grigor Hakobyan on 07.11.21.
 //
 
-import Swinject
 import Domain
+import Swinject
 
 public final class ViewModelsAssembly: Assembly {
     
@@ -15,6 +15,10 @@ public final class ViewModelsAssembly: Assembly {
         container.register(PopularSeriesViewModel.self) { resolver in
             let moviesService = resolver.resolve(Domain.MoviesService.self)!
             return PopularSeriesViewModel(moviesService: moviesService)
+        }
+
+        container.register(MoviesDetailViewModel.self) { (resolver: Resolver, tvShow: TVShow) in
+            return MoviesDetailViewModel(tvShow: tvShow)
         }
     }
 }
