@@ -35,6 +35,7 @@ target 'TMDB' do
   pod 'RxFlow'
   pod 'SDWebImage'
   pod 'Swinject'
+  pod 'DifferenceKit'
   
   target 'TMDBTests' do
     inherit! :search_paths

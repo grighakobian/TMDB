@@ -467,8 +467,8 @@
 			children = (
 				DD94491B2737FA65001C8235 /* PopularSeriesViewModel.swift */,
 				DD94491D2737FAD1001C8235 /* PopularSeriesViewController.swift */,
-				DD0B76D227395EE000817F3F /* Views */,
 				DD0B76D5273964E400817F3F /* MoviesCollectionViewFlowLayout.swift */,
+				DD0B76D227395EE000817F3F /* Views */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
