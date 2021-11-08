@@ -43,3 +43,19 @@ public enum API: TargetType {
     }
 }
 
+
+private let queryItem = URLQueryItem(
+    name: "api_key",
+    value: "55b14a25af9de1c89aeecfce2fdf963e"
+)
+
+extension API: Authenticable {
+    
+    public var authenticationType: AuthenticationType {
+        switch self {
+        case .popularTVShows:
+            return .auth(queryItem)
+        }
+    }
+}
+
