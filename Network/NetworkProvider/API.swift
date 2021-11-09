@@ -7,9 +7,11 @@
 
 import Moya
 
+private let apiKey = "55b14a25af9de1c89aeecfce2fdf963e"
+
 public enum API: TargetType {
     
-    case popularTVShows(page: Int)
+    case popularMovies(page: Int)
     
     public var baseURL: URL {
         return URL(string: "https://api.themoviedb.org/3")!
@@ -17,7 +19,7 @@ public enum API: TargetType {
     
     public var path: String {
         switch self {
-        case .popularTVShows:
+        case .popularMovies:
             return "tv/popular"
         }
     }
@@ -28,7 +30,7 @@ public enum API: TargetType {
     
     public var task: Task {
         switch self {
-        case .popularTVShows(let page):
+        case .popularMovies(let page):
             let page = ["page": page]
             return .requestParameters(parameters: page, encoding: URLEncoding.default)
         }
@@ -48,17 +50,14 @@ public enum API: TargetType {
 }
 
 
-private let queryItem = URLQueryItem(
-    name: "api_key",
-    value: "55b14a25af9de1c89aeecfce2fdf963e"
-)
+// MARK: - Authenticable
 
 extension API: Authenticable {
     
     public var authenticationType: AuthenticationType {
         switch self {
-        case .popularTVShows:
-            return .auth(queryItem)
+        case .popularMovies:
+            return .auth(apiKey: apiKey)
         }
     }
 }

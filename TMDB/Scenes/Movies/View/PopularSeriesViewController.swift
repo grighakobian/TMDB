@@ -55,7 +55,7 @@ public final class PopularSeriesViewController: UICollectionViewController {
         
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
-        output.popularTVShows
+        output.popularMovies
             .drive(onNext: { [unowned self] sectionItems in
                 setSectionItems(sectionItems)
             }).disposed(by: disposeBag)
