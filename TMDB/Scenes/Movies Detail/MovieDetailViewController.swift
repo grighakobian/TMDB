@@ -22,6 +22,7 @@ public class MovieDetailViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     public let viewModel: MovieDetailViewModel
+    private var dataSource: MoviesDataSource!
     
     public init(viewModel: MovieDetailViewModel) {
         self.viewModel = viewModel
@@ -36,11 +37,16 @@ public class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
+        configureDataSource()
         bindViewModel()
     }
     
     private func bindViewModel() {
-        let input = MovieDetailViewModel.Input()
+        let onMovieSelected = collectionView.rx
+            .itemSelected
+            .map({ $0.item })
+        
+        let input = MovieDetailViewModel.Input(onMovieSelected: onMovieSelected)
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
         output.movieDriver
@@ -49,6 +55,19 @@ public class MovieDetailViewController: UIViewController {
                 movieView.bind(item: item)
                 overviewLabel.text = item.overview
             }).disposed(by: disposeBag)
+        
+        output.similarMoviesDriver
+            .map({ $0.isEmpty })
+            .drive(containerView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        output.similarMoviesDriver
+            .drive(dataSource.rx.sectionItems)
+            .disposed(by: disposeBag)
+    }
+    
+    private func configureDataSource() {
+        dataSource = MoviesDataSource(collectionView: collectionView)
     }
 }
 
@@ -89,7 +108,7 @@ extension MovieDetailViewController {
         containerView.addSubview(headingLabel)
         containerView.addSubview(collectionView)
         stackView.addArrangedSubview(containerView)
-        containerView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
         headingLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         headingLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
@@ -151,18 +170,24 @@ extension MovieDetailViewController {
         let label = InsetLabel()
         label.text = "You may also like"
         label.textColor = UIColor.label
-        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
-        label.textInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        label.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
+        label.textInsets = UIEdgeInsets(top: 8, left: 20, bottom: 18, right: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
     
     private func makeCollectionView()-> UICollectionView {
         let layout = MoviesCollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 250, height: 300)
+        layout.minimumLineSpacing = 20.0
+        layout.minimumInteritemSpacing = 20.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .quaternarySystemFill
         collectionView.register(MovieCollectionViewCell.self)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }
 }
