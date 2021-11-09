@@ -57,6 +57,43 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Interaction
+
+extension MovieCollectionViewCell {
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        isHighlighted = false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        isHighlighted = true
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        isHighlighted = false
+    }
+    
+    override var isHighlighted: Bool {
+        didSet { shrink(isHighlighted) }
+    }
+    
+    private func shrink(_ shrink: Bool) {
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0,
+            usingSpringWithDamping: 0.4,
+            initialSpringVelocity: 0.8,
+            options: [.allowUserInteraction, .beginFromCurrentState],
+            animations: { self.transform = shrink ? CGAffineTransform(scaleX: 0.95, y: 0.95) : .identity },
+            completion: nil
+        )
+    }
+}
+
+// MARK: - View Factory
 
 extension MovieCollectionViewCell {
     
