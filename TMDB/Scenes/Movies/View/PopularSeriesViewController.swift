@@ -13,8 +13,7 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     public let viewModel: PopularSeriesViewModel
     
-    private(set) var sectionItems = [MovieItemViewModel]()
-    
+    private(set) var sectionItems = [SectionItem]()
     internal let nextPageTrigger = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     
@@ -67,31 +66,18 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.systemBackground
+        collectionView.alwaysBounceVertical = true
+        
         collectionView.register(MovieCollectionViewCell.self)
+        collectionView.register(StateCollectionViewCell.self)
     }
     
     // MARK: DataSource
     
-    func setSectionItems(_ newSectionItems: [MovieItemViewModel]) {
+    func setSectionItems(_ newSectionItems: [SectionItem]) {
         let changeset = StagedChangeset(source: sectionItems, target: newSectionItems)
         collectionView.reload(using: changeset) { newSectionItems in
             self.sectionItems = newSectionItems
-        }
-    }
-}
-
-
-extension Reactive where Base: PopularSeriesViewController {
-    
-    public var error: Binder<Error> {
-        return Binder(self.base) { viewController, error in
-            let label = InsetLabel()
-            label.font = UIFont.systemFont(ofSize: 24.0, weight: .medium)
-            label.textColor = .secondaryLabel
-            label.textAlignment = .center
-            label.numberOfLines = 0
-            label.textInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-            viewController.collectionView.backgroundView = label
         }
     }
 }
