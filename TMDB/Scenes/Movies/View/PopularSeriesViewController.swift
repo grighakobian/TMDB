@@ -67,7 +67,7 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.systemBackground
-        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseId)
+        collectionView.register(MovieCollectionViewCell.self)
     }
     
     // MARK: DataSource
@@ -76,6 +76,22 @@ public final class PopularSeriesViewController: UICollectionViewController {
         let changeset = StagedChangeset(source: sectionItems, target: newSectionItems)
         collectionView.reload(using: changeset) { newSectionItems in
             self.sectionItems = newSectionItems
+        }
+    }
+}
+
+
+extension Reactive where Base: PopularSeriesViewController {
+    
+    public var error: Binder<Error> {
+        return Binder(self.base) { viewController, error in
+            let label = InsetLabel()
+            label.font = UIFont.systemFont(ofSize: 24.0, weight: .medium)
+            label.textColor = .secondaryLabel
+            label.textAlignment = .center
+            label.numberOfLines = 0
+            label.textInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+            viewController.collectionView.backgroundView = label
         }
     }
 }
