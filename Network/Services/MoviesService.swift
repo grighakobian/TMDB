@@ -21,4 +21,9 @@ open class MoviesService: Domain.MoviesService {
         return moyaProvider.rx.request(.popularMovies(page: page))
             .map(MoviesResult.self)
     }
+    
+    public func getSimilarMovies(id: Int, page: Int) -> Single<MoviesResult> {
+        return moyaProvider.rx.request(.similarMovies(id: id, page: page))
+            .map(MoviesResult.self)
+    }
 }
