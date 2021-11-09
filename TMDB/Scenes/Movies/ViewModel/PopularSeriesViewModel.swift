@@ -31,19 +31,21 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     }
     
     public struct Input {
-           /// Triggers when user scrolls to the
-           /// bottom of the target scroll view
-           let nextPageTrigger: Observable<Void>
-           /// Triggers when user selects a movie
-           let onMovieSelected: Observable<Int>
-       }
-
+        /// Triggers when user scrolls to the
+        /// bottom of the target scroll view
+        let nextPageTrigger: Observable<Void>
+        /// Triggers when user selects a movie
+        let onMovieSelected: Observable<Int>
+    }
     
     public struct Output {
         let popularMovies: Driver<[MovieItemViewModel]>
+        let error: Driver<Error>
     }
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
+        let errorTracker = ErrorTracker()
+        
         input.nextPageTrigger
             .observe(on: serialScheduler)
             .skip(while: { [unowned self] in
@@ -55,6 +57,8 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             })
             .flatMap { [unowned self] _ -> Single<MoviesResult> in
                 return moviesService.getPopularMovies(page: currentPage + 1)
+                    .trackError(errorTracker)
+                    .asSingle()
             }
             .subscribe(onNext: { [unowned self] response in
                 self.currentPage = response.page ?? 0
@@ -74,6 +78,7 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             .bind(to: steps)
             .disposed(by: disposeBag)
         
-        return Output(popularMovies: sectionItems.asDriver())
+        return Output(popularMovies: sectionItems.asDriver(),
+                      error: errorTracker.asDriver())
     }
 }
