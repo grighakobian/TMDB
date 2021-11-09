@@ -39,6 +39,12 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         configureMovieView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.shadowRadius = 0.03 * bounds.width
+    }
+    
     private func configureShadow() {
         layer.cornerRadius = 15.0
         layer.shadowColor = UIColor.black.cgColor

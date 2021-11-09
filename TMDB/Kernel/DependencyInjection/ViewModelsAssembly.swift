@@ -18,7 +18,8 @@ public final class ViewModelsAssembly: Assembly {
         }
 
         container.register(MovieDetailViewModel.self) { (resolver: Resolver, movie: MovieRepresentable) in
-            return MovieDetailViewModel(movie: movie)
+            let moviesService = resolver.resolve(Domain.MoviesService.self)!
+            return MovieDetailViewModel(movie: movie, moviesSevice: moviesService)
         }
     }
 }

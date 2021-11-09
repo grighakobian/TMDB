@@ -20,4 +20,17 @@ open class InsetLabel: UILabel {
         super.drawText(in: insetRect)
     }
     
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+
+        let horizontalInset = textInsets.left + textInsets.right
+        preferredMaxLayoutWidth = frame.width - horizontalInset
+    }
+    
+    open override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        let width = size.width + textInsets.left + textInsets.right
+        let height = size.height + textInsets.top + textInsets.bottom
+        return CGSize(width: width, height: height)
+    }
 }

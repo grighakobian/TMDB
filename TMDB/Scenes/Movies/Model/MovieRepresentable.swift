@@ -8,8 +8,9 @@
 import Foundation
 
 public protocol MovieRepresentable {
+    var id: Int { get } 
     var title: String? { get }
     var posterImageUrl: URL? { get }
-    var averageRating: Double? { get }
+    var averageRating: String? { get }
     var overview: String? { get }
 }

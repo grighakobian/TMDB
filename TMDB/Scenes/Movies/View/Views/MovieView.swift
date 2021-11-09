@@ -26,14 +26,22 @@ final class MovieView: UIView {
         commonInit()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let titleFontAspectRatio: CGFloat = 0.12
+        let titleFontSize = bounds.width * titleFontAspectRatio
+        titleLabel.font = UIFont.systemFont(ofSize: titleFontSize, weight: .heavy)
+        
+        let ratingFontAspectRatio: CGFloat = 0.06
+        let ratingFontSize = bounds.width * ratingFontAspectRatio
+        ratingLabel.font = UIFont.systemFont(ofSize: ratingFontSize, weight: .bold)
+    }
+    
     func bind(item: MovieRepresentable) {
         titleLabel.text = item.title
         imageView.sd_setImage(with: item.posterImageUrl, completed: nil)
-        if let averageRating = item.averageRating {
-            ratingLabel.text = String(averageRating)
-        } else {
-            ratingLabel.text = nil
-        }
+        ratingLabel.text = item.averageRating
     }
     
     func prepareForReuse() {
@@ -83,7 +91,6 @@ final class MovieView: UIView {
     private func configureRatingLabel() {
         ratingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.0).isActive = true
         ratingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12.0).isActive = true
-        ratingLabel.widthAnchor.constraint(equalToConstant: 52).isActive = true
     }
 }
 
@@ -100,17 +107,17 @@ extension MovieView {
     }
     
     private func makeRatingLabel()-> InsetLabel {
-        let titleLabel = InsetLabel()
-        titleLabel.numberOfLines = 1
-        titleLabel.textColor = UIColor.white
-        titleLabel.backgroundColor = UIColor.systemPink
-        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        titleLabel.layer.cornerRadius = 4.0
-        titleLabel.clipsToBounds = true
-        titleLabel.textAlignment = .center
-        titleLabel.textInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return titleLabel
+        let ratingLabel = InsetLabel()
+        ratingLabel.numberOfLines = 1
+        ratingLabel.textColor = UIColor.white
+        ratingLabel.backgroundColor = UIColor.systemPink
+        ratingLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        ratingLabel.layer.cornerRadius = 4.0
+        ratingLabel.clipsToBounds = true
+        ratingLabel.textAlignment = .center
+        ratingLabel.textInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        return ratingLabel
     }
     
     private func makeImageView()-> UIImageView {
