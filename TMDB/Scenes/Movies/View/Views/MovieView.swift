@@ -110,9 +110,9 @@ extension MovieView {
         let ratingLabel = InsetLabel()
         ratingLabel.numberOfLines = 1
         ratingLabel.textColor = UIColor.white
-        ratingLabel.backgroundColor = UIColor.systemPink
+        ratingLabel.backgroundColor = UIColor.systemBlue
         ratingLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        ratingLabel.layer.cornerRadius = 4.0
+        ratingLabel.layer.cornerRadius = 6.0
         ratingLabel.clipsToBounds = true
         ratingLabel.textAlignment = .center
         ratingLabel.textInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
