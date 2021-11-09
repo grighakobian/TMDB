@@ -41,10 +41,12 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     public struct Output {
         let popularMovies: Driver<[MovieItemViewModel]>
         let error: Driver<Error>
+        let isLoading: Driver<Bool>
     }
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
         let errorTracker = ErrorTracker()
+        let activityIndicator = ActivityIndicator()
         
         input.nextPageTrigger
             .observe(on: serialScheduler)
@@ -58,6 +60,7 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             .flatMap { [unowned self] _ -> Single<MoviesResult> in
                 return moviesService.getPopularMovies(page: currentPage + 1)
                     .trackError(errorTracker)
+                    .trackActivity(activityIndicator)
                     .asSingle()
             }
             .subscribe(onNext: { [unowned self] response in
@@ -79,6 +82,7 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             .disposed(by: disposeBag)
         
         return Output(popularMovies: sectionItems.asDriver(),
-                      error: errorTracker.asDriver())
+                      error: errorTracker.asDriver(),
+                      isLoading: activityIndicator.asDriver())
     }
 }
