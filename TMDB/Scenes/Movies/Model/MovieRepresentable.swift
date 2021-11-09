@@ -11,4 +11,5 @@ public protocol MovieRepresentable {
     var title: String? { get }
     var posterImageUrl: URL? { get }
     var averageRating: Double? { get }
+    var overview: String? { get }
 }

@@ -14,21 +14,19 @@ struct MovieItemViewModel: MovieRepresentable {
     let title: String?
     let posterImageUrl: URL?
     let averageRating: Double?
-    
-    let tvShow: TVShow
-
+    let overview: String?
     
     init(tvShow: TVShow) {
-        self.tvShow = tvShow
+        self.id = tvShow.id ?? 0
+        self.title = tvShow.name ?? ""
+        self.averageRating = tvShow.voteAverage
+        self.overview = tvShow.overview
         
-        id = tvShow.id ?? 0
-        title = tvShow.name ?? ""
-        averageRating = tvShow.voteAverage
         if let posterPath = tvShow.posterPath {
             let posterPath = "https://image.tmdb.org/t/p/w500/\(posterPath)"
-            posterImageUrl = URL(string: posterPath)!
+            self.posterImageUrl = URL(string: posterPath)!
         } else {
-            posterImageUrl = nil
+            self.posterImageUrl = nil
         }
     }
 }

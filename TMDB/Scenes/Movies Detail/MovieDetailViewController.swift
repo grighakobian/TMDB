@@ -13,6 +13,8 @@ import SDWebImage
 public class MovieDetailViewController: UIViewController {
     
     private lazy var movieView = makeMovieView()
+    private lazy var overviewLabel = makeOverviewLabel()
+    private lazy var scrollView = makeScrollView()
     
     private let disposeBag = DisposeBag()
     public let viewModel: MovieDetailViewModel
@@ -30,7 +32,6 @@ public class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
-        configureMovieView()
         bindViewModel()
     }
     
@@ -42,24 +43,57 @@ public class MovieDetailViewController: UIViewController {
             .drive(onNext: { [unowned self] item in
                 navigationItem.title = item.title
                 movieView.bind(item: item)
+                overviewLabel.text = item.overview
             }).disposed(by: disposeBag)
     }
+}
+
+
+// MARK: - View Configuration
+
+extension MovieDetailViewController {
     
     private func configureView() {
         view.backgroundColor = .systemBackground
         navigationItem.largeTitleDisplayMode = .never
+        
+        configureScrollView()
+        configureMovieView()
+        configureOverviewLabel()
+    }
+    
+    private func configureScrollView() {
+        view.addSubview(scrollView)
+        let safeArea = view.safeAreaLayoutGuide
+        scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
     }
     
     private func configureMovieView() {
-        view.addSubview(movieView)
-        let safeArea = view.safeAreaLayoutGuide
-        movieView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        movieView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
-        movieView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        scrollView.addSubview(movieView)
+        let layoutGuide = scrollView.contentLayoutGuide
+        movieView.topAnchor.constraint(equalTo: layoutGuide.topAnchor).isActive = true
+        movieView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
+        movieView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor).isActive = true
         movieView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.5).isActive = true
+        movieView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+        movieView.centerXAnchor.constraint(equalTo: scrollView.frameLayoutGuide.centerXAnchor).isActive = true
+    }
+    
+    private func configureOverviewLabel() {
+        scrollView.addSubview(overviewLabel)
+        let layoutGuide = scrollView.contentLayoutGuide
+        overviewLabel.topAnchor.constraint(equalTo: movieView.bottomAnchor, constant: 20.0).isActive = true
+        overviewLabel.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor, constant: 24.0).isActive = true
+        overviewLabel.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor, constant: -20.0).isActive = true
+        overviewLabel.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor, constant: -20).isActive = true
     }
 }
 
+
+// MARK:-  View Factory
 
 extension MovieDetailViewController {
     
@@ -69,5 +103,20 @@ extension MovieDetailViewController {
         movieView.translatesAutoresizingMaskIntoConstraints = false
         return movieView
     }
-
+    
+    private func makeOverviewLabel()-> UILabel {
+        let overviewLabel = UILabel()
+        overviewLabel.numberOfLines = 0
+        overviewLabel.textColor = UIColor.secondaryLabel
+        overviewLabel.font = UIFont.systemFont(ofSize: 32, weight: .regular)
+        overviewLabel.translatesAutoresizingMaskIntoConstraints = false
+        return overviewLabel
+    }
+    
+    private func makeScrollView()->UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.alwaysBounceVertical = true
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }
 }
