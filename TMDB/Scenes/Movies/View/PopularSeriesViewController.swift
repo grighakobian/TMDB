@@ -11,11 +11,10 @@ import DifferenceKit
 
 public final class PopularSeriesViewController: UICollectionViewController {
     
-    public let viewModel: PopularSeriesViewModel
-    
-    private(set) var sectionItems = [SectionItem]()
-    internal let nextPageTrigger = PublishSubject<Void>()
+    private var dataSource: MoviesDataSource!
     private let disposeBag = DisposeBag()
+    public let viewModel: PopularSeriesViewModel
+    internal let nextPageTrigger = PublishSubject<Void>()
     
     // MARK: - Init
     
@@ -34,9 +33,8 @@ public final class PopularSeriesViewController: UICollectionViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNavigationItem()
-        configureCollectionView()
-        
+        configureView()
+        configureDataSource()
         bindViewModel()
     }
     
@@ -52,32 +50,26 @@ public final class PopularSeriesViewController: UICollectionViewController {
             onMovieSelected: onMovieSelected
         )
         
-        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+        let output = viewModel.transform(
+            input: input,
+            disposeBag: disposeBag
+        )
         
         output.popularMovies
-            .drive(onNext: { [unowned self] sectionItems in
-                setSectionItems(sectionItems)
-            }).disposed(by: disposeBag)
+            .drive(dataSource.rx.sectionItems)
+            .disposed(by: disposeBag)
     }
     
-    private func configureNavigationItem() {
+    private func configureView() {
         title = "TMDB"
-    }
-    
-    private func configureCollectionView() {
-        collectionView.backgroundColor = UIColor.systemBackground
         collectionView.alwaysBounceVertical = true
-        
-        collectionView.register(MovieCollectionViewCell.self)
-        collectionView.register(StateCollectionViewCell.self)
+        collectionView.backgroundColor = UIColor.systemBackground
     }
     
-    // MARK: DataSource
-    
-    func setSectionItems(_ newSectionItems: [SectionItem]) {
-        let changeset = StagedChangeset(source: sectionItems, target: newSectionItems)
-        collectionView.reload(using: changeset) { newSectionItems in
-            self.sectionItems = newSectionItems
-        }
+    private func configureDataSource() {
+        self.dataSource = MoviesDataSource(collectionView: collectionView)
+        dataSource.onRetryButtonTapped
+            .bind(to: nextPageTrigger)
+            .disposed(by: disposeBag)
     }
 }
