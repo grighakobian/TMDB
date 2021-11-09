@@ -427,8 +427,8 @@
 		DD0B76F12739B68900817F3F /* Movies Detail */ = {
 			isa = PBXGroup;
 			children = (
-				DD0B76F22739B69900817F3F /* MovieDetailViewModel.swift */,
-				DD0B76F42739B7E000817F3F /* MovieDetailViewController.swift */,
+				DD0B7728273AF69100817F3F /* View */,
+				DD0B7727273AF68700817F3F /* ViewModel */,
 			);
 			path = "Movies Detail";
 			sourceTree = "<group>";
@@ -451,6 +451,22 @@
 				DD0B7716273AAE9800817F3F /* ActivityIndicator.swift */,
 			);
 			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		DD0B7727273AF68700817F3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B76F22739B69900817F3F /* MovieDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD0B7728273AF69100817F3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B76F42739B7E000817F3F /* MovieDetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DD94488C2737F047001C8235 = {
