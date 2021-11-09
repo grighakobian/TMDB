@@ -16,13 +16,13 @@ struct MovieItemViewModel: MovieRepresentable {
     let averageRating: Double?
     let overview: String?
     
-    init(tvShow: TVShow) {
-        self.id = tvShow.id ?? 0
-        self.title = tvShow.name ?? ""
-        self.averageRating = tvShow.voteAverage
-        self.overview = tvShow.overview
+    init(movie: Movie) {
+        self.id = movie.id ?? 0
+        self.title = movie.name ?? ""
+        self.averageRating = movie.voteAverage
+        self.overview = movie.overview
         
-        if let posterPath = tvShow.posterPath {
+        if let posterPath = movie.posterPath {
             let posterPath = "https://image.tmdb.org/t/p/w500/\(posterPath)"
             self.posterImageUrl = URL(string: posterPath)!
         } else {

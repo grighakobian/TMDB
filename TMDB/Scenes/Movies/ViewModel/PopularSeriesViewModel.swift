@@ -40,7 +40,7 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
 
     
     public struct Output {
-        let popularTVShows: Driver<[MovieItemViewModel]>
+        let popularMovies: Driver<[MovieItemViewModel]>
     }
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
@@ -53,13 +53,13 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
                 }
                 return true
             })
-            .flatMap { [unowned self] _ -> Single<TVShowsResult> in
-                return moviesService.getPopularTVShows(page: currentPage + 1)
+            .flatMap { [unowned self] _ -> Single<MoviesResult> in
+                return moviesService.getPopularMovies(page: currentPage + 1)
             }
             .subscribe(onNext: { [unowned self] response in
                 self.currentPage = response.page ?? 0
                 let results = response.results ?? []
-                let newSectionItems = results.map({ MovieItemViewModel(tvShow: $0) })
+                let newSectionItems = results.map({ MovieItemViewModel(movie: $0) })
                 var sectionItems = self.sectionItems.value
                 sectionItems.append(contentsOf: newSectionItems)
                 self.sectionItems.accept(sectionItems)
@@ -75,6 +75,6 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             .bind(to: steps)
             .disposed(by: disposeBag)
         
-        return Output(popularTVShows: sectionItems.asDriver())
+        return Output(popularMovies: sectionItems.asDriver())
     }
 }

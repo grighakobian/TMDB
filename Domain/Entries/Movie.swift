@@ -1,12 +1,12 @@
 //
-//  TVShow.swift
+//  Movie.swift
 //  Domain
 //
 //  Created by Grigor Hakobyan on 07.11.21.
 //
 
 
-public struct TVShow: Codable {
+public struct Movie: Codable {
     public let backdropPath: String?
     public let firstAirDate: String?
     public let genreIDS: [Int]?

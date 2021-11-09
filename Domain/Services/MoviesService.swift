@@ -8,8 +8,8 @@
 import RxSwift
 
 public protocol MoviesService: AnyObject {
-    /// Get a list of the current popular TV shows on TMDB.
+    /// Get a list of the current popular movies on TMDB.
     /// - Parameter page: Specify which page to query.
     ///                   Validation: minimum: 1, maximum: 1000, default: 1
-    func getPopularTVShows(page: Int)->Single<TVShowsResult>
+    func getPopularMovies(page: Int)->Single<MoviesResult>
 }

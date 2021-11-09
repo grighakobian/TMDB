@@ -55,8 +55,8 @@
 		DD9449302738037B001C8235 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94492F2738037B001C8235 /* ServicesAssembly.swift */; };
 		DD9449332738084F001C8235 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9449322738084F001C8235 /* AppStep.swift */; };
 		DD94493527380CC1001C8235 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94493427380CC1001C8235 /* AppFlow.swift */; };
-		DD94495527382020001C8235 /* TVShowsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* TVShowsResult.swift */; };
-		DD944957273822A4001C8235 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* TVShow.swift */; };
+		DD94495527382020001C8235 /* MoviesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495427382020001C8235 /* MoviesResult.swift */; };
+		DD944957273822A4001C8235 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD944956273822A4001C8235 /* Movie.swift */; };
 		DD94495B2738232E001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94495A2738232E001C8235 /* MoviesService.swift */; };
 		DD94496927391C1F001C8235 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496827391C1F001C8235 /* MoviesService.swift */; };
 		DD94496E27391D91001C8235 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94496D27391D91001C8235 /* API.swift */; };
@@ -205,8 +205,8 @@
 		DD94492F2738037B001C8235 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		DD9449322738084F001C8235 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		DD94493427380CC1001C8235 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
-		DD94495427382020001C8235 /* TVShowsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResult.swift; sourceTree = "<group>"; };
-		DD944956273822A4001C8235 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		DD94495427382020001C8235 /* MoviesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResult.swift; sourceTree = "<group>"; };
+		DD944956273822A4001C8235 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DD94495A2738232E001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		DD94496827391C1F001C8235 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		DD94496D27391D91001C8235 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -593,8 +593,8 @@
 		DD944958273822EA001C8235 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				DD944956273822A4001C8235 /* TVShow.swift */,
-				DD94495427382020001C8235 /* TVShowsResult.swift */,
+				DD944956273822A4001C8235 /* Movie.swift */,
+				DD94495427382020001C8235 /* MoviesResult.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -1164,8 +1164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD944957273822A4001C8235 /* TVShow.swift in Sources */,
-				DD94495527382020001C8235 /* TVShowsResult.swift in Sources */,
+				DD944957273822A4001C8235 /* Movie.swift in Sources */,
+				DD94495527382020001C8235 /* MoviesResult.swift in Sources */,
 				DD94495B2738232E001C8235 /* MoviesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
