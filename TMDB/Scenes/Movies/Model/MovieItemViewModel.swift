@@ -15,7 +15,12 @@ struct MovieItemViewModel: MovieRepresentable {
     let posterImageUrl: URL?
     let averageRating: Double?
     
+    let tvShow: TVShow
+
+    
     init(tvShow: TVShow) {
+        self.tvShow = tvShow
+        
         id = tvShow.id ?? 0
         title = tvShow.name ?? ""
         averageRating = tvShow.voteAverage

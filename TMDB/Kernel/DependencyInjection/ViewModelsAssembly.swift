@@ -17,8 +17,8 @@ public final class ViewModelsAssembly: Assembly {
             return PopularSeriesViewModel(moviesService: moviesService)
         }
 
-        container.register(MovieDetailViewModel.self) { (resolver: Resolver, tvShow: TVShow) in
-            return MovieDetailViewModel(tvShow: tvShow)
+        container.register(MovieDetailViewModel.self) { (resolver: Resolver, movie: MovieRepresentable) in
+            return MovieDetailViewModel(movie: movie)
         }
     }
 }

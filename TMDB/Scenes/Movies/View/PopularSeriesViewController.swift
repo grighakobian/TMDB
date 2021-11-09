@@ -44,7 +44,15 @@ public final class PopularSeriesViewController: UICollectionViewController {
     // MARK: - Helpers
     
     private func bindViewModel() {
-        let input = PopularSeriesViewModel.Input(nextPageTrigger: nextPageTrigger)
+        let onMovieSelected = collectionView.rx
+            .itemSelected
+            .map({ $0.item })
+        
+        let input = PopularSeriesViewModel.Input(
+            nextPageTrigger: nextPageTrigger,
+            onMovieSelected: onMovieSelected
+        )
+        
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
         output.popularTVShows

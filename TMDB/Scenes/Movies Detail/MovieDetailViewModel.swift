@@ -9,14 +9,15 @@
 import Domain
 import RxSwift
 import RxCocoa
+import RxFlow
 
-public class MovieDetailViewModel: ViewModel {
+public class MovieDetailViewModel: ViewModel, Stepper {
+
+    public var steps = PublishRelay<Step>()
+    private let movie: MovieRepresentable
     
-    
-    private let tvShow: TVShow
-    
-    public init(tvShow: TVShow) {
-        self.tvShow = tvShow
+    public init(movie: MovieRepresentable) {
+        self.movie = movie
     }
     
     public struct Input {
@@ -24,11 +25,11 @@ public class MovieDetailViewModel: ViewModel {
     }
     
     public struct Output {
-        let tvShowDriver: Driver<TVShow>
+        let movieDriver: Driver<MovieRepresentable>
     }
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
-        let tvShowDriver = Driver.just(tvShow)
-        return Output(tvShowDriver: tvShowDriver)
+        let movieDriver = Driver.just(movie)
+        return Output(movieDriver: movieDriver)
     }
 }

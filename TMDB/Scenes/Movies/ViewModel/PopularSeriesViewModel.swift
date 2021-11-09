@@ -31,8 +31,13 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     }
     
     public struct Input {
-        let nextPageTrigger: Observable<Void>
-    }
+           /// Triggers when user scrolls to the
+           /// bottom of the target scroll view
+           let nextPageTrigger: Observable<Void>
+           /// Triggers when user selects a movie
+           let onMovieSelected: Observable<Int>
+       }
+
     
     public struct Output {
         let popularTVShows: Driver<[MovieItemViewModel]>
@@ -62,6 +67,13 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
             }, onError: { [unowned self] error in
                 self.paginationContext.finish(false)
             }).disposed(by: disposeBag)
+        
+        input.onMovieSelected
+            .withLatestFrom(sectionItems, resultSelector: { $1[$0] })
+            .map({ AppStep.movieDetail($0) })
+            .debug()
+            .bind(to: steps)
+            .disposed(by: disposeBag)
         
         return Output(popularTVShows: sectionItems.asDriver())
     }

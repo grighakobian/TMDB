@@ -5,10 +5,12 @@
 //  Created by Grigor Hakobyan on 07.11.21.
 //
 
+import Domain
 import RxFlow
 
 public enum AppStep: Step {
-    case popularSeries
-    
+    case popularMovies
+    case movieDetail(MovieRepresentable)
+    case pop
 }
 
