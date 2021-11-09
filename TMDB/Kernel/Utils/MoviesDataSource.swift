@@ -7,6 +7,7 @@
 
 import RxSwift
 import DifferenceKit
+import SDWebImage
 
 protocol MoviesDataSourceType: AnyObject {
     var sectionItems: [SectionItem] { get }
@@ -29,6 +30,7 @@ public class MoviesDataSource: NSObject, MoviesDataSourceType  {
         super.init()
         
         self.collectionView.dataSource = self
+        self.collectionView.prefetchDataSource = self
         self.collectionView.register(MovieCollectionViewCell.self)
         self.collectionView.register(StateCollectionViewCell.self)
     }
@@ -68,6 +70,18 @@ extension MoviesDataSource: UICollectionViewDataSource {
                 .disposed(by: cell.rx.reuseBag)
             return cell
         }
+    }
+}
+
+// MARK: - UICollectionViewDataSourcePrefetching
+
+extension MoviesDataSource: UICollectionViewDataSourcePrefetching {
+    
+    public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let urls = indexPaths
+            .map({ sectionItems[$0.item].movieViewModel?.posterImageUrl })
+            .compactMap({ $0 })
+        SDWebImagePrefetcher.shared.prefetchURLs(urls)
     }
 }
 
