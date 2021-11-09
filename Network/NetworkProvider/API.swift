@@ -7,6 +7,8 @@
 
 import Moya
 
+private let apiKey = "55b14a25af9de1c89aeecfce2fdf963e"
+
 public enum API: TargetType {
     
     case popularMovies(page: Int)
@@ -48,17 +50,14 @@ public enum API: TargetType {
 }
 
 
-private let queryItem = URLQueryItem(
-    name: "api_key",
-    value: "55b14a25af9de1c89aeecfce2fdf963e"
-)
+// MARK: - Authenticable
 
 extension API: Authenticable {
     
     public var authenticationType: AuthenticationType {
         switch self {
         case .popularMovies:
-            return .auth(queryItem)
+            return .auth(apiKey: apiKey)
         }
     }
 }
