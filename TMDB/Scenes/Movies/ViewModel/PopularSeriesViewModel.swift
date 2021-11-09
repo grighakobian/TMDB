@@ -71,7 +71,6 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
         input.onMovieSelected
             .withLatestFrom(sectionItems, resultSelector: { $1[$0] })
             .map({ AppStep.movieDetail($0) })
-            .debug()
             .bind(to: steps)
             .disposed(by: disposeBag)
         

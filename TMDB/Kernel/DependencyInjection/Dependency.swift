@@ -15,11 +15,13 @@ public final class Dependency {
         let servicesAssembly = ServicesAssembly()
         let viewModelsAssembly = ViewModelsAssembly()
         let viewControllersAssembly = ViewControllersAssembly()
+        let coordinatorsAssembly = CoordinatorsAssembly()
         
         let assemblies: [Assembly] = [
             servicesAssembly,
             viewModelsAssembly,
-            viewControllersAssembly
+            viewControllersAssembly,
+            coordinatorsAssembly
         ]
         
         self.assembler = Assembler(assemblies)
