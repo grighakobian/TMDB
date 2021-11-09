@@ -26,12 +26,19 @@ extension AppFlow: Flow {
     
     public func navigate(to step: Step) -> FlowContributors {
         guard let appStep = step as? AppStep else { return .none }
+        let resolver = Dependency.shared.resolver
         switch appStep {
-        case .popularSeries:
-            let resolver = Dependency.shared.resolver
+        case .popularMovies:
             let viewController = resolver.resolve(PopularSeriesViewController.self)!
             navigationController.pushViewController(viewController, animated: true)
             return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel))
+        case .movieDetail(let movie):
+            let viewController = resolver.resolve(MovieDetailViewController.self, argument: movie)!
+            navigationController.pushViewController(viewController, animated: true)
+            return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel))
+        case .pop:
+            navigationController.popViewController(animated: true)
+            return .none
         }
     }
 }
