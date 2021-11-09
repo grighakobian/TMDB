@@ -33,26 +33,18 @@ struct MovieItemViewModel: MovieRepresentable {
 
 // MARK: - Equatable
 
-extension MovieItemViewModel: Equatable {
+extension MovieItemViewModel: Differentiable {
     
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.title == rhs.title &&
-            lhs.posterImageUrl == rhs.posterImageUrl &&
-            lhs.averageRating == rhs.averageRating
+    typealias DifferenceIdentifier = String
+    
+    var differenceIdentifier: String {
+        return id.description
+    }
+    
+    func isContentEqual(to source: MovieItemViewModel) -> Bool {
+        return self.id == source.id &&
+            self.title == source.title &&
+            self.posterImageUrl == source.posterImageUrl &&
+            self.averageRating == source.averageRating
     }
 }
-
-// MARK: - Hashable
-
-extension MovieItemViewModel: Hashable {
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
-
-// MARK: - Differentiable
-
-extension MovieItemViewModel: Differentiable {}

@@ -20,27 +20,31 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     private var currentPage: Int
     private var paginationContext: PaginationContext
     private let serialScheduler: SerialDispatchQueueScheduler
-    private let sectionItems: BehaviorRelay<[MovieItemViewModel]>
+    private let sectionItems: BehaviorRelay<[SectionItem]>
+    
+    private let errorTracker = ErrorTracker()
+    private let activityIndicator = ActivityIndicator()
+    private let initialLoadingCompleted: BehaviorRelay<Bool>
     
     public init(moviesService: Domain.MoviesService) {
         self.moviesService = moviesService
         self.currentPage = 0
         self.paginationContext = PaginationContext()
-        self.sectionItems = BehaviorRelay<[MovieItemViewModel]>(value: [])
+        self.sectionItems = BehaviorRelay<[SectionItem]>(value: [])
         self.serialScheduler = SerialDispatchQueueScheduler(qos: .userInteractive)
+        self.initialLoadingCompleted = BehaviorRelay(value: false)
     }
     
     public struct Input {
-           /// Triggers when user scrolls to the
-           /// bottom of the target scroll view
-           let nextPageTrigger: Observable<Void>
-           /// Triggers when user selects a movie
-           let onMovieSelected: Observable<Int>
-       }
-
+        /// Triggers when user scrolls to the
+        /// bottom of the target scroll view
+        let nextPageTrigger: PublishSubject<Void>
+        /// Triggers when user selects a movie
+        let onMovieSelected: Observable<Int>
+    }
     
     public struct Output {
-        let popularMovies: Driver<[MovieItemViewModel]>
+        let popularMovies: Driver<[SectionItem]>
     }
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
@@ -53,27 +57,78 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
                 }
                 return true
             })
-            .flatMap { [unowned self] _ -> Single<MoviesResult> in
+            .flatMap { [unowned self] _ -> Observable<MoviesResult?> in
                 return moviesService.getPopularMovies(page: currentPage + 1)
+                    .trackActivity(activityIndicator)
+                    .trackError(errorTracker)
+                    .asObservable()
+                    .map({ result -> MoviesResult? in
+                        return result
+                    })
+                    .catch({ error in return Observable<MoviesResult?>.just(nil) })
             }
+            .filter({ $0 != nil })
+            .map({ $0! })
             .subscribe(onNext: { [unowned self] response in
-                self.currentPage = response.page ?? 0
-                let results = response.results ?? []
-                let newSectionItems = results.map({ MovieItemViewModel(movie: $0) })
-                var sectionItems = self.sectionItems.value
-                sectionItems.append(contentsOf: newSectionItems)
-                self.sectionItems.accept(sectionItems)
-                self.paginationContext.finish(true)
+                handleSuccessResponse(response)
             }, onError: { [unowned self] error in
-                self.paginationContext.finish(false)
+                paginationContext.finish(false)
             }).disposed(by: disposeBag)
         
-        input.onMovieSelected
-            .withLatestFrom(sectionItems, resultSelector: { $1[$0] })
-            .map({ AppStep.movieDetail($0) })
-            .bind(to: steps)
-            .disposed(by: disposeBag)
+        configureActivityIndicator(disposeBag)
+        configireErrorTracker(disposeBag)
+        handleMovieSelection(input: input, disposeBag: disposeBag)
         
         return Output(popularMovies: sectionItems.asDriver())
+    }
+    
+    private func configireErrorTracker(_ disposeBag: DisposeBag) {
+        // Handle error tracker use case
+        errorTracker.asObservable()
+            .withLatestFrom(initialLoadingCompleted, resultSelector: { error, isLoaded -> Error? in
+                return isLoaded ? nil : error
+            })
+            .filter({ $0 != nil })
+            .map({ [SectionItem.state(.failed(with: $0!))] })
+            .bind(to: sectionItems)
+            .disposed(by: disposeBag)
+    }
+    
+    private func configureActivityIndicator(_ disposeBag: DisposeBag) {
+        // Handle activity indicator use case
+        activityIndicator.asObservable()
+            .withLatestFrom(initialLoadingCompleted) { $0 && !$1 }
+            .filter({ $0 })
+            .mapVoid()
+            .map({ [SectionItem.state(.loading)] })
+            .bind(to: sectionItems)
+            .disposed(by: disposeBag)
+    }
+    
+    private func handleMovieSelection(input: Input, disposeBag: DisposeBag) {
+        // Handle movie selection
+        input.onMovieSelected
+            .withLatestFrom(sectionItems, resultSelector: { $1[$0] })
+            .map({ $0.movieViewModel })
+            .filter({ $0 != nil })
+            .map({ AppStep.movieDetail($0!) })
+            .bind(to: steps)
+            .disposed(by: disposeBag)
+    }
+    
+    private func handleSuccessResponse(_ response: MoviesResult) {
+        self.currentPage = response.page ?? 0
+        let results = response.results ?? []
+        var sectionItems = self.sectionItems.value
+        if (initialLoadingCompleted.value == false) {
+            initialLoadingCompleted.accept(true)
+            sectionItems.removeAll()
+        }
+        let newSectionItems = results
+            .map({ MovieItemViewModel(movie: $0) })
+            .map({ SectionItem.movie($0) })
+        sectionItems.append(contentsOf: newSectionItems)
+        self.sectionItems.accept(sectionItems)
+        self.paginationContext.finish(true)
     }
 }

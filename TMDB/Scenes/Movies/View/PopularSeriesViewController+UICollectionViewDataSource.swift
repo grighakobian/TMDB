@@ -18,8 +18,19 @@ extension PopularSeriesViewController {
     }
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseId, for: indexPath) as! MovieCollectionViewCell
-        cell.bind(item: sectionItems[indexPath.item])
-        return cell
+        let sectionItem = sectionItems[indexPath.item]
+        switch sectionItem {
+        case .movie(let movieViewModel):
+            let cell = collectionView.dequeueReusableCell(ofType: MovieCollectionViewCell.self, at: indexPath)
+            cell.bind(item: movieViewModel)
+            return cell
+        case .state(let loadingState):
+            let cell = collectionView.dequeueReusableCell(ofType: StateCollectionViewCell.self, at: indexPath)
+            cell.bind(state: loadingState)
+            cell.retryButton.rx.tap
+                .bind(to: nextPageTrigger)
+                .disposed(by: cell.rx.reuseBag)
+            return cell
+        }
     }
 }

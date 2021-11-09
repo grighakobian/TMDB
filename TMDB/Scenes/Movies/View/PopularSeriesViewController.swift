@@ -13,8 +13,7 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     public let viewModel: PopularSeriesViewModel
     
-    private(set) var sectionItems = [MovieItemViewModel]()
-    
+    private(set) var sectionItems = [SectionItem]()
     internal let nextPageTrigger = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     
@@ -67,12 +66,15 @@ public final class PopularSeriesViewController: UICollectionViewController {
     
     private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.systemBackground
-        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseId)
+        collectionView.alwaysBounceVertical = true
+        
+        collectionView.register(MovieCollectionViewCell.self)
+        collectionView.register(StateCollectionViewCell.self)
     }
     
     // MARK: DataSource
     
-    func setSectionItems(_ newSectionItems: [MovieItemViewModel]) {
+    func setSectionItems(_ newSectionItems: [SectionItem]) {
         let changeset = StagedChangeset(source: sectionItems, target: newSectionItems)
         collectionView.reload(using: changeset) { newSectionItems in
             self.sectionItems = newSectionItems
