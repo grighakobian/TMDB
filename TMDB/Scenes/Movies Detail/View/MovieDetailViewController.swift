@@ -83,6 +83,7 @@ extension MovieDetailViewController {
         
         configureScrollView()
         configureStackView()
+        configureCollectionView()
     }
     
     private func configureScrollView() {
