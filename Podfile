@@ -16,13 +16,13 @@ target 'Domain' do
   
 end
 
-target 'Network' do
+target 'NetworkPlatform' do
   
   # Pods for Network
   pod 'RxSwift'
   pod 'Moya/RxSwift'
   
-  target 'NetworkTests' do
+  target 'NetworkPlatformTests' do
     # Pods for testing
   end
 
@@ -52,7 +52,6 @@ post_install do |installer|
   
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
       
       if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 12.0
