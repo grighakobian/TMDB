@@ -5,10 +5,10 @@
 //  Created by Grigor Hakobyan on 07.11.21.
 //
 
+import Domain
 import RxSwift
 import RxRelay
 import RxFlow
-import Domain
 import RxCocoa
 
 public final class PopularMoviesViewModel: ViewModel, Stepper {
