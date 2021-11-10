@@ -12,9 +12,9 @@ public final class ViewControllersAssembly: Assembly {
     
     public func assemble(container: Container) {
         
-        container.register(PopularSeriesViewController.self) { resolver in
-            let viewModel = resolver.resolve(PopularSeriesViewModel.self)!
-            return PopularSeriesViewController(viewModel: viewModel)
+        container.register(PopularMoviesViewController.self) { resolver in
+            let viewModel = resolver.resolve(PopularMoviesViewModel.self)!
+            return PopularMoviesViewController(viewModel: viewModel)
         }
         
         container.register(MovieDetailViewController.self) { (resolver: Resolver, movie: MovieRepresentable) in

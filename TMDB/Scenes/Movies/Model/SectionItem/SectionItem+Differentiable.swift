@@ -1,29 +1,11 @@
 //
-//  SectionItem.swift
+//  SectionItem+Differentiable.swift
 //  TMDB
 //
-//  Created by Grigor Hakobyan on 09.11.21.
+//  Created by Grigor Hakobyan on 10.11.21.
 //
 
 import DifferenceKit
-
-enum SectionItem {
-    case state(LoadingState)
-    case movie(MovieItemViewModel)
-}
-
-
-extension SectionItem {
-    
-    var movieViewModel: MovieItemViewModel? {
-        switch self {
-        case .movie(let viewModel):
-            return viewModel
-        default:
-            return nil
-        }
-    }
-}
 
 extension SectionItem: Differentiable {
     
@@ -47,5 +29,5 @@ extension SectionItem: Differentiable {
         default:
             return false
         }
-    }   
+    }
 }

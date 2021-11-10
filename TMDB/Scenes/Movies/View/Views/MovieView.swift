@@ -95,6 +95,8 @@ final class MovieView: UIView {
 }
 
 
+// MARK: - View Factory
+
 extension MovieView {
     
     private func makeTitleLabel()->UILabel {

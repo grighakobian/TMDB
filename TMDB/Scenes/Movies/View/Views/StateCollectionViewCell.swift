@@ -56,6 +56,7 @@ final class StateCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - View Factory
 
 extension StateCollectionViewCell {
     

@@ -1,5 +1,5 @@
 //
-//  PopularSeriesViewController.swift
+//  PopularMoviesViewController.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 07.11.21.
@@ -7,18 +7,17 @@
 
 import UIKit
 import RxSwift
-import DifferenceKit
 
-public final class PopularSeriesViewController: UICollectionViewController {
-    
-    private var dataSource: MoviesDataSource!
-    private let disposeBag = DisposeBag()
-    public let viewModel: PopularSeriesViewModel
-    internal let nextPageTrigger = PublishSubject<Void>()
+public final class PopularMoviesViewController: UICollectionViewController {
+        
+    private(set) var viewModel: PopularMoviesViewModel
+    private(set) var dataSource: MoviesDataSource!
+    private(set) var nextPageTrigger = PublishSubject<Void>()
+    private(set) var disposeBag = DisposeBag()
     
     // MARK: - Init
     
-    init(viewModel: PopularSeriesViewModel) {
+    init(viewModel: PopularMoviesViewModel) {
         self.viewModel = viewModel
         let layout = MoviesCollectionViewFlowLayout()
         super.init(collectionViewLayout: layout)
@@ -45,7 +44,7 @@ public final class PopularSeriesViewController: UICollectionViewController {
             .itemSelected
             .map({ $0.item })
         
-        let input = PopularSeriesViewModel.Input(
+        let input = PopularMoviesViewModel.Input(
             nextPageTrigger: nextPageTrigger,
             onMovieSelected: onMovieSelected
         )
