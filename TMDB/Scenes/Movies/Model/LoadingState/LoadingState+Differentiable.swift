@@ -1,17 +1,11 @@
 //
-//  LoadingState.swift
+//  LoadingState+Differentiable.swift
 //  TMDB
 //
-//  Created by Grigor Hakobyan on 09.11.21.
+//  Created by Grigor Hakobyan on 10.11.21.
 //
 
 import DifferenceKit
-
-enum LoadingState {
-    case loading
-    case failed(with: Error)
-}
-
 
 extension LoadingState: Differentiable {
     
