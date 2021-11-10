@@ -1,5 +1,5 @@
 # 🎬 TMDB
-![](Resources/preview.png =300x)
+![](Resources/preview.png)
 
 This project was build using Clean Architecture and [TMDB](https://developers.themoviedb.org/3) api.
 
