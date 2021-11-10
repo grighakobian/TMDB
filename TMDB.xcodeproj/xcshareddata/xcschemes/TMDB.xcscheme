@@ -68,6 +68,16 @@
                ReferencedContainer = "container:TMDB.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DD0B7749273BA84E00817F3F"
+               BuildableName = "NetworkPlatformTests.xctest"
+               BlueprintName = "NetworkPlatformTests"
+               ReferencedContainer = "container:TMDB.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

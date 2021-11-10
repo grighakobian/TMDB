@@ -16,13 +16,13 @@ target 'Domain' do
   
 end
 
-target 'Network' do
+target 'NetworkPlatform' do
   
   # Pods for Network
   pod 'RxSwift'
   pod 'Moya/RxSwift'
   
-  target 'NetworkTests' do
+  target 'NetworkPlatformTests' do
     # Pods for testing
   end
 

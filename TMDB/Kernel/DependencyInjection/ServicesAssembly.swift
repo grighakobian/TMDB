@@ -5,9 +5,9 @@
 //  Created by Grigor Hakobyan on 07.11.21.
 //
 
-import Swinject
-import Network
 import Domain
+import Swinject
+import NetworkPlatform
 
 public final class ServicesAssembly: Assembly {
     
@@ -23,7 +23,7 @@ public final class ServicesAssembly: Assembly {
         container.register(Domain.MoviesService.self) { resolver in
             let networkProvider = resolver.resolve(NetworkProviderType.self)!
             let moyaProvider = networkProvider.provideDefaultNetworkProvider()
-            return Network.MoviesService(moyaProvider: moyaProvider)
+            return NetworkPlatform.MoviesService(moyaProvider: moyaProvider)
         }
     }
 }
