@@ -4,7 +4,7 @@ This project was build using Clean Architecture and [TMDB](https://developers.th
 
 ## ⭐️ Features
 - ✅ Display list of popular series.
-- ✅ Display mnovie details and similar movies.
+- ✅ Display movies details and similar movies.
 
 ## 📋 TODO
 - Add search functionality.
