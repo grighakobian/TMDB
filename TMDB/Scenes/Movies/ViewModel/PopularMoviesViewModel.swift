@@ -1,5 +1,5 @@
 //
-//  PopularSeriesViewModel.swift
+//  PopularMoviesViewModel.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 07.11.21.
@@ -11,17 +11,21 @@ import RxFlow
 import Domain
 import RxCocoa
 
-public final class PopularSeriesViewModel: ViewModel, Stepper {
+public final class PopularMoviesViewModel: ViewModel, Stepper {
     
+    // Stepper
     public var steps = PublishRelay<Step>()
     
+    // Movies service
     private let moviesService: Domain.MoviesService
+    private let sectionItems: BehaviorRelay<[SectionItem]>
 
+    // Pagination context
     private var currentPage: Int
     private var paginationContext: PaginationContext
     private let serialScheduler: SerialDispatchQueueScheduler
-    private let sectionItems: BehaviorRelay<[SectionItem]>
     
+    // Loading state handling
     private let errorTracker = ErrorTracker()
     private let activityIndicator = ActivityIndicator()
     private let initialLoadingCompleted: BehaviorRelay<Bool>
@@ -83,7 +87,6 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     }
     
     private func configireErrorTracker(_ disposeBag: DisposeBag) {
-        // Handle error tracker use case
         errorTracker.asObservable()
             .withLatestFrom(initialLoadingCompleted, resultSelector: { error, isLoaded -> Error? in
                 return isLoaded ? nil : error
@@ -95,7 +98,6 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     }
     
     private func configureActivityIndicator(_ disposeBag: DisposeBag) {
-        // Handle activity indicator use case
         activityIndicator.asObservable()
             .withLatestFrom(initialLoadingCompleted) { $0 && !$1 }
             .filter({ $0 })
@@ -106,7 +108,6 @@ public final class PopularSeriesViewModel: ViewModel, Stepper {
     }
     
     private func handleMovieSelection(input: Input, disposeBag: DisposeBag) {
-        // Handle movie selection
         input.onMovieSelected
             .withLatestFrom(sectionItems, resultSelector: { $1[$0] })
             .map({ $0.movieViewModel })

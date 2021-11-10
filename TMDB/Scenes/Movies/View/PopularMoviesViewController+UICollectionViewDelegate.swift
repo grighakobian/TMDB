@@ -1,5 +1,5 @@
 //
-//  PopularSeriesViewController+UICollectionViewDelegate.swift
+//  PopularMoviesViewController+UICollectionViewDelegate.swift
 //  TMDB
 //
 //  Created by Grigor Hakobyan on 08.11.21.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-extension PopularSeriesViewController {
+extension PopularMoviesViewController {
     
     public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let nextPageTriggerHeight = scrollView.bounds.height / 2

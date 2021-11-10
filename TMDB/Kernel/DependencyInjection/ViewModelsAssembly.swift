@@ -12,9 +12,9 @@ public final class ViewModelsAssembly: Assembly {
     
     public func assemble(container: Container) {
         
-        container.register(PopularSeriesViewModel.self) { resolver in
+        container.register(PopularMoviesViewModel.self) { resolver in
             let moviesService = resolver.resolve(Domain.MoviesService.self)!
-            return PopularSeriesViewModel(moviesService: moviesService)
+            return PopularMoviesViewModel(moviesService: moviesService)
         }
 
         container.register(MovieDetailViewModel.self) { (resolver: Resolver, movie: MovieRepresentable) in

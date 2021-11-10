@@ -32,7 +32,7 @@ extension AppFlow: Flow {
         let resolver = Dependency.shared.resolver
         switch appStep {
         case .popularMovies:
-            let viewController = resolver.resolve(PopularSeriesViewController.self)!
+            let viewController = resolver.resolve(PopularMoviesViewController.self)!
             navigationController.pushViewController(viewController, animated: true)
             return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel))
         case .movieDetail(let movie):
